@@ -413,16 +413,34 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     z-index: 2;
 }
 
+/* Slide Content — full width, two-column layout */
 .slide-content {
-    max-width: 680px;
-    padding-top: 60px;
+    width: 100%;
+}
+
+/* Heading 75% wide, description below it pushed right */
+.slide-body {
+    margin-bottom: 44px;
+}
+
+.slide-body__left {
+    max-width: 75%;
+    margin-bottom: 20px;
+}
+
+.slide-body__right {
+    max-width: 42%;
+    margin-left: auto;
+}
+
+/* Accent colour for highlighted words in heading */
+.slide-accent {
+    color: var(--bs-secondary);
 }
 
 /* ---- Slide Animation System ---- */
-/* Initial hidden state */
-.slide-content .slide-tag,
-.slide-content .slide-heading,
-.slide-content .slide-desc,
+.slide-content .slide-body__left,
+.slide-content .slide-body__right,
 .slide-content .slide-cta {
     opacity: 0;
     transform: translateY(44px);
@@ -430,64 +448,41 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
                 transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Triggered state — staggered delays */
-.slide-content.slide-animate .slide-tag {
+.slide-content.slide-animate .slide-body__left {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.08s;
+    transition-delay: 0.10s;
 }
 
-.slide-content.slide-animate .slide-heading {
+.slide-content.slide-animate .slide-body__right {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.26s;
-}
-
-.slide-content.slide-animate .slide-desc {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.44s;
+    transition-delay: 0.30s;
 }
 
 .slide-content.slide-animate .slide-cta {
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.60s;
-}
-
-/* Slide Tag Pill */
-.slide-tag {
-    display: inline-block;
-    background: rgba(251, 170, 25, 0.14);
-    color: var(--bs-secondary);
-    border: 1px solid rgba(251, 170, 25, 0.45);
-    border-radius: 50px;
-    padding: 6px 20px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 22px;
+    transition-delay: 0.50s;
 }
 
 /* Slide Heading */
 .slide-heading {
-    font-size: clamp(2.1rem, 4.8vw, 3.9rem);
+    font-size: clamp(2.2rem, 4.8vw, 4.2rem);
     font-weight: 800;
     color: #fff;
-    line-height: 1.13;
+    line-height: 1.12;
     letter-spacing: -0.025em;
-    margin-bottom: 22px;
+    margin: 0;
 }
 
 /* Slide Description */
 .slide-desc {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.76);
-    line-height: 1.72;
-    margin-bottom: 38px;
-    max-width: 520px;
+    line-height: 1.75;
     font-weight: 400;
+    margin: 0;
 }
 
 /* Slide CTA Buttons */
@@ -498,49 +493,34 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     gap: 16px;
 }
 
-.btn-slide-primary {
-    background: var(--bs-secondary);
+.btn-slide-primary,
+.btn-slide-outline {
+    background: transparent;
     color: #fff;
-    border: 2px solid var(--bs-secondary);
-    border-radius: 50px;
-    padding: 13px 32px;
-    font-size: 0.9rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    padding: 13px 30px;
+    font-size: 0.88rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 0;
     transition: all 0.3s ease;
 }
 
 .btn-slide-primary:hover {
-    background: var(--bs-secondary-hover);
-    border-color: var(--bs-secondary-hover);
+    background: var(--bs-secondary);
+    border-color: var(--bs-secondary);
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(251, 170, 25, 0.38);
-}
-
-.btn-slide-outline {
-    background: transparent;
-    color: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(255, 255, 255, 0.42);
-    border-radius: 50px;
-    padding: 13px 32px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(251, 170, 25, 0.35);
 }
 
 .btn-slide-outline:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.8);
+    border-color: #fff;
     color: #fff;
     transform: translateY(-2px);
 }
@@ -567,39 +547,43 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
-/* ---- Scroll Down Indicator ---- */
-.hero-scroll-indicator {
+/* ---- Circular Scroll Badge ---- */
+.hero-scroll-badge {
     position: absolute;
-    bottom: 32px;
-    left: 5%;
+    right: 4%;
+    bottom: 12%;
+    width: 90px;
+    height: 90px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     z-index: 5;
+    cursor: pointer;
 }
 
-.hero-scroll-indicator span {
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+.hero-scroll-badge__ring {
+    position: absolute;
+    inset: 0;
+    animation: rotateBadge 12s linear infinite;
 }
 
-.hero-scroll-line {
-    width: 1px;
-    height: 52px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
-    animation: scrollLinePulse 2.2s ease-in-out infinite;
-    transform-origin: top center;
+.hero-scroll-badge__arrow {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: arrowBounce 1.8s ease-in-out infinite;
 }
 
-@keyframes scrollLinePulse {
-    0%, 100% { opacity: 0.35; transform: scaleY(1); }
-    50%       { opacity: 1;    transform: scaleY(1.18); }
+@keyframes rotateBadge {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(4px); }
 }
 
 /* ====================================================
@@ -610,11 +594,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #mainNav {
         padding: 14px 0;
     }
-    .slide-content {
-        padding-top: 40px;
+    .slide-body {
+        margin-bottom: 32px;
+    }
+    .slide-body__left {
+        max-width: 100%;
+    }
+    .slide-body__right {
+        max-width: 60%;
+        margin-left: auto;
     }
     .slide-heading {
         font-size: clamp(1.75rem, 5.5vw, 2.8rem);
+    }
+    .hero-scroll-badge {
+        display: none;
     }
 }
 
@@ -624,19 +618,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         line-height: 1.18;
     }
     .slide-desc {
-        font-size: 0.95rem;
-        margin-bottom: 28px;
+        font-size: 1rem;
     }
     .btn-slide-primary,
     .btn-slide-outline {
-        padding: 11px 24px;
+        padding: 11px 22px;
         font-size: 0.85rem;
     }
     .slide-cta {
         gap: 12px;
-    }
-    .hero-scroll-indicator {
-        display: none;
     }
     .hero-section {
         min-height: 100svh;

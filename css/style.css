@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* Logo */
 .nav-logo {
-    height: 44px;
+    height: 84px;
     width: auto;
     display: block;
 }
@@ -223,26 +223,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     padding-left: 28px;
 }
 
-/* Nav Icon Buttons (search) */
-.nav-icon-btn {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.85);
-    padding: 0;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.25s, background 0.25s;
-}
-
-.nav-icon-btn:hover {
-    color: var(--bs-secondary);
-    background: rgba(255, 255, 255, 0.08);
-}
 
 /* "Get in touch" CTA Button */
 .btn-get-in-touch {
@@ -354,16 +334,62 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .hero-slide {
     position: relative;
     height: 100%;
+    overflow: hidden;
+}
+
+/* Background lives on ::before so transform:scale() won't affect Swiper's slide layout */
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    z-index: 0;
+    will-change: transform;
+    transform: scale(1);
 }
 
-/* Each slide shares the hero image; overlays differentiate them */
-.hero-slide--1 { background-image: url('../img/hero-bg.png'); }
-.hero-slide--2 { background-image: url('../img/hero-bg.png'); }
-.hero-slide--3 { background-image: url('../img/hero-bg.png'); }
-.hero-slide--4 { background-image: url('../img/hero-bg.png'); }
+.hero-slide--1::before { background-image: url('../img/hero-bg.png'); }
+.hero-slide--2::before { background-image: url('../img/hero-bg.png'); }
+.hero-slide--3::before { background-image: url('../img/hero-bg.png'); }
+.hero-slide--4::before { background-image: url('../img/hero-bg.png'); }
+
+/* Ken Burns — each slide has a unique zoom-in movement */
+
+/* Slide 1: zoom in from center */
+@keyframes heroZoom1 {
+    from { transform: scale(1.15) translate(0, 0); }
+    to   { transform: scale(1)    translate(0, 0); }
+}
+
+/* Slide 2: zoom in + pan right (moves left→right) */
+@keyframes heroZoom2 {
+    from { transform: scale(1.15) translateX(-4%); }
+    to   { transform: scale(1)    translateX(0);   }
+}
+
+/* Slide 3: zoom in + pan left (moves right→left) */
+@keyframes heroZoom3 {
+    from { transform: scale(1.15) translateX(4%); }
+    to   { transform: scale(1)    translateX(0);  }
+}
+
+/* Slide 4: zoom in + pan up (moves bottom→top) */
+@keyframes heroZoom4 {
+    from { transform: scale(1.15) translateY(4%); }
+    to   { transform: scale(1)    translateY(0);  }
+}
+
+.hero-slide--1::before,
+.hero-slide--2::before,
+.hero-slide--3::before,
+.hero-slide--4::before { transform-origin: center center; }
+
+.swiper-slide-active .hero-slide--1::before { animation: heroZoom1 7s ease-out forwards; }
+.swiper-slide-active .hero-slide--2::before { animation: heroZoom2 7s ease-out forwards; }
+.swiper-slide-active .hero-slide--3::before { animation: heroZoom3 7s ease-out forwards; }
+.swiper-slide-active .hero-slide--4::before { animation: heroZoom4 7s ease-out forwards; }
 
 /* Overlay — primary → secondary gradient at 20% opacity */
 .hero-overlay {

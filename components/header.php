@@ -1,3 +1,13 @@
+<?php
+$_cur = basename($_SERVER['PHP_SELF']);
+
+function _nav_active(array $pages, string $cur, string $cls = 'active'): string {
+    return in_array($cur, $pages, true) ? ' ' . $cls : '';
+}
+
+$_company_pages  = ['about.php', 'team.php', 'portfolio.php'];
+$_services_pages = ['web-designing.php', 'web-development.php', 'seo-digital-marketing.php', 'mobile-development.php'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,47 +37,54 @@
         <nav id="mainNav" class="navbar navbar-expand-lg nav-transparent">
             <div class="container-90 d-flex align-items-center w-100">
 
-                <!-- Logo (injected by scripts.js → NAV_LOGO_SVG) -->
+                <!-- Logo -->
                 <a class="navbar-brand flex-shrink-0" id="navLogoBrand" href="index.php"></a>
 
                 <!-- Desktop Navigation -->
                 <div class="collapse navbar-collapse ms-4" id="mainNavCollapse">
                     <ul class="navbar-nav mx-auto gap-1 align-items-center">
+
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Home</a>
+                            <a class="nav-link<?= _nav_active(['index.php'], $_cur) ?>" href="index.php">Home</a>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
+                            <a class="nav-link dropdown-toggle<?= _nav_active($_company_pages, $_cur) ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">About Us</a></li>
-                                <li><a class="dropdown-item" href="#">Our Team</a></li>
-                                <li><a class="dropdown-item" href="#">Portfolio</a></li>                                
+                                <li><a class="dropdown-item<?= _nav_active(['about.php'], $_cur) ?>" href="about.php">About Us</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['team.php'], $_cur) ?>" href="team.php">Our Team</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['portfolio.php'], $_cur) ?>" href="portfolio.php">Portfolio</a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                            <a class="nav-link dropdown-toggle<?= _nav_active($_services_pages, $_cur) ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Web Designing</a></li>
-                                <li><a class="dropdown-item" href="#">Web Development</a></li>
-                                <li><a class="dropdown-item" href="#">SEO &amp; Digital Marketing</a></li>
-                                <li><a class="dropdown-item" href="#">Mobile Development</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['web-designing.php'], $_cur) ?>" href="web-designing.php">Web Designing</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['web-development.php'], $_cur) ?>" href="web-development.php">Web Development</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['seo-digital-marketing.php'], $_cur) ?>" href="seo-digital-marketing.php">SEO &amp; Digital Marketing</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['mobile-development.php'], $_cur) ?>" href="mobile-development.php">Mobile Development</a></li>
                             </ul>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link<?= _nav_active(['pricing.php'], $_cur) ?>" href="pricing.php">Pricing</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="#">Blogs</a>
-                        </li>                       
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link<?= _nav_active(['blogs.php', 'blog.php', 'blog-detail.php'], $_cur) ?>" href="blogs.php">Blogs</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link<?= _nav_active(['contact.php'], $_cur) ?>" href="contact.php">Contact</a>
+                        </li>
+
                     </ul>
                 </div>
 
                 <!-- Right Actions -->
                 <div class="nav-actions ms-auto d-flex align-items-center gap-2 flex-shrink-0">
-                    <a href="#contact" class="btn btn-get-in-touch d-none d-lg-inline-flex">Send Enquiry</a>
+                    <a href="contact.php" class="btn btn-get-in-touch d-none d-lg-inline-flex">Send Enquiry</a>
                     <button class="nav-hamburger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-label="Menu">
                         <span></span><span></span><span></span>
                     </button>
@@ -86,29 +103,44 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link<?= _nav_active(['index.php'], $_cur) ?>" href="index.php">Home</a>
+                    </li>
+
                     <li class="nav-item mobile-nav-group">
-                        <span class="mobile-nav-label">Company</span>
+                        <span class="mobile-nav-label<?= _nav_active($_company_pages, $_cur, 'active-group') ?>">Company</span>
                         <ul class="mobile-nav-sub">
-                            <li><a class="nav-link" href="#">About Us</a></li>
-                            <li><a class="nav-link" href="#">Our Team</a></li>
-                            <li><a class="nav-link" href="#">Portfolio</a></li>
+                            <li><a class="nav-link<?= _nav_active(['about.php'], $_cur) ?>" href="about.php">About Us</a></li>
+                            <li><a class="nav-link<?= _nav_active(['team.php'], $_cur) ?>" href="team.php">Our Team</a></li>
+                            <li><a class="nav-link<?= _nav_active(['portfolio.php'], $_cur) ?>" href="portfolio.php">Portfolio</a></li>
                         </ul>
                     </li>
+
                     <li class="nav-item mobile-nav-group">
-                        <span class="mobile-nav-label">Services</span>
+                        <span class="mobile-nav-label<?= _nav_active($_services_pages, $_cur, 'active-group') ?>">Services</span>
                         <ul class="mobile-nav-sub">
-                            <li><a class="nav-link" href="#">Web Designing</a></li>
-                            <li><a class="nav-link" href="#">Web Development</a></li>
-                            <li><a class="nav-link" href="#">SEO &amp; Digital Marketing</a></li>
-                            <li><a class="nav-link" href="#">Mobile Development</a></li>
+                            <li><a class="nav-link<?= _nav_active(['web-designing.php'], $_cur) ?>" href="web-designing.php">Web Designing</a></li>
+                            <li><a class="nav-link<?= _nav_active(['web-development.php'], $_cur) ?>" href="web-development.php">Web Development</a></li>
+                            <li><a class="nav-link<?= _nav_active(['seo-digital-marketing.php'], $_cur) ?>" href="seo-digital-marketing.php">SEO &amp; Digital Marketing</a></li>
+                            <li><a class="nav-link<?= _nav_active(['mobile-development.php'], $_cur) ?>" href="mobile-development.php">Mobile Development</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link<?= _nav_active(['pricing.php'], $_cur) ?>" href="pricing.php">Pricing</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link<?= _nav_active(['blogs.php', 'blog.php', 'blog-detail.php'], $_cur) ?>" href="blogs.php">Blogs</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link<?= _nav_active(['contact.php'], $_cur) ?>" href="contact.php">Contact</a>
+                    </li>
+
                 </ul>
-                <a href="#contact" class="btn btn-secondary w-100 mt-4 rounded-pill">Send Enquiry</a>
+                <a href="contact.php" class="btn btn-secondary w-100 mt-4 rounded-pill">Send Enquiry</a>
             </div>
         </div>
     </header>

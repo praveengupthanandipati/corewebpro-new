@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <?php if (isset($page_meta)) echo $page_meta; ?>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/aos.css">
@@ -36,34 +37,28 @@
                             <a class="nav-link active" href="#">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="#">About Us</a></li>
                                 <li><a class="dropdown-item" href="#">Our Team</a></li>
-                                <li><a class="dropdown-item" href="#">Portfolio</a></li>
-                                <li><a class="dropdown-item" href="#">Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Portfolio</a></li>                                
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Web Designing</a></li>
                                 <li><a class="dropdown-item" href="#">Web Development</a></li>
-                                <li><a class="dropdown-item" href="#">UI/UX Design</a></li>
-                                <li><a class="dropdown-item" href="#">SEO &amp; Marketing</a></li>
-                                <li><a class="dropdown-item" href="#">Cloud Solutions</a></li>
+                                <li><a class="dropdown-item" href="#">SEO &amp; Digital Marketing</a></li>
+                                <li><a class="dropdown-item" href="#">Mobile Development</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pricing</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Latest Articles</a></li>
-                                <li><a class="dropdown-item" href="#">Case Studies</a></li>
-                                <li><a class="dropdown-item" href="#">News</a></li>
-                            </ul>
-                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#">Blogs</a>
+                        </li>                       
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
@@ -92,13 +87,28 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item mobile-nav-group">
+                        <span class="mobile-nav-label">Company</span>
+                        <ul class="mobile-nav-sub">
+                            <li><a class="nav-link" href="#">About Us</a></li>
+                            <li><a class="nav-link" href="#">Our Team</a></li>
+                            <li><a class="nav-link" href="#">Portfolio</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mobile-nav-group">
+                        <span class="mobile-nav-label">Services</span>
+                        <ul class="mobile-nav-sub">
+                            <li><a class="nav-link" href="#">Web Designing</a></li>
+                            <li><a class="nav-link" href="#">Web Development</a></li>
+                            <li><a class="nav-link" href="#">SEO &amp; Digital Marketing</a></li>
+                            <li><a class="nav-link" href="#">Mobile Development</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
-                <a href="#contact" class="btn btn-secondary w-100 mt-4 rounded-pill">Get in touch</a>
+                <a href="#contact" class="btn btn-secondary w-100 mt-4 rounded-pill">Send Enquiry</a>
             </div>
         </div>
     </header>

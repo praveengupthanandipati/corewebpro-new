@@ -723,6 +723,97 @@ include 'components/header.php';
         </section>
         <!--/ TECHNOLOGIES SECTION -->
 
+        <!-- ===== RECENT BLOGS SECTION ===== -->
+        <section class="blogs-section" id="blogs">
+            <div class="container-90">
+
+                <!-- Header -->
+                <div class="blogs-header" data-aos="fade-up" data-aos-duration="700">
+                    <div class="blogs-header__left">
+                        <span class="blogs-eyebrow">Our Blog</span>
+                        <h2 class="blogs-title">Latest <span>Insights</span> &amp; Articles</h2>
+                        <p class="blogs-subtitle">Stay ahead with expert tips, industry trends and deep dives into web design, development and emerging technologies.</p>
+                    </div>
+                    <a href="#" class="blogs-view-all">View All Blogs <span class="blogs-view-all__arrow">&#8599;</span></a>
+                </div>
+
+                <!-- Grid -->
+                <div class="blogs-grid">
+
+                    <!-- Blog 1 -->
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="700">
+                        <a href="#" class="blog-card__img-wrap">
+                            <img src="https://picsum.photos/seed/aiweb2025/600/380" alt="How AI is Revolutionising Web Design" class="blog-card__img">
+                            <span class="blog-card__category blog-card__category--ai">AI &amp; Design</span>
+                        </a>
+                        <div class="blog-card__body">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">May 28, 2025</span>
+                                <span class="blog-card__read">5 min read</span>
+                            </div>
+                            <h3 class="blog-card__title"><a href="#">How AI is Revolutionising Web Design in 2025</a></h3>
+                            <p class="blog-card__excerpt">From AI-generated layouts to intelligent UX personalisation — discover how machine learning tools are reshaping the way designers create digital experiences.</p>
+                            <a href="#" class="blog-card__link">Read Article <span data-icon="arrowRight"></span></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog 2 -->
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                        <a href="#" class="blog-card__img-wrap">
+                            <img src="https://picsum.photos/seed/webdev25/600/380" alt="Top Web Development Trends 2025" class="blog-card__img">
+                            <span class="blog-card__category blog-card__category--dev">Web Development</span>
+                        </a>
+                        <div class="blog-card__body">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">May 15, 2025</span>
+                                <span class="blog-card__read">7 min read</span>
+                            </div>
+                            <h3 class="blog-card__title"><a href="#">Top 10 Web Development Trends to Watch in 2025</a></h3>
+                            <p class="blog-card__excerpt">Edge computing, server components, WebAssembly and AI-assisted coding — the technologies redefining how modern web applications are built and deployed.</p>
+                            <a href="#" class="blog-card__link">Read Article <span data-icon="arrowRight"></span></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog 3 -->
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+                        <a href="#" class="blog-card__img-wrap">
+                            <img src="https://picsum.photos/seed/cssmodern/600/380" alt="Modern CSS Features Every Designer Should Know" class="blog-card__img">
+                            <span class="blog-card__category blog-card__category--design">UI/UX Design</span>
+                        </a>
+                        <div class="blog-card__body">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">Apr 30, 2025</span>
+                                <span class="blog-card__read">6 min read</span>
+                            </div>
+                            <h3 class="blog-card__title"><a href="#">Modern CSS Features Every Web Designer Should Know</a></h3>
+                            <p class="blog-card__excerpt">CSS Container Queries, :has() selector, Cascade Layers and View Transitions — a practical guide to the modern CSS features transforming front-end design.</p>
+                            <a href="#" class="blog-card__link">Read Article <span data-icon="arrowRight"></span></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog 4 -->
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+                        <a href="#" class="blog-card__img-wrap">
+                            <img src="https://picsum.photos/seed/reactai25/600/380" alt="Building AI-Powered Web Apps with React" class="blog-card__img">
+                            <span class="blog-card__category blog-card__category--tech">Technology</span>
+                        </a>
+                        <div class="blog-card__body">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">Apr 12, 2025</span>
+                                <span class="blog-card__read">8 min read</span>
+                            </div>
+                            <h3 class="blog-card__title"><a href="#">Building AI-Powered Web Apps with React &amp; Next.js</a></h3>
+                            <p class="blog-card__excerpt">Integrating OpenAI APIs, streaming responses and building intelligent interfaces — a hands-on guide to adding real AI capabilities to your React applications.</p>
+                            <a href="#" class="blog-card__link">Read Article <span data-icon="arrowRight"></span></a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+        <!--/ RECENT BLOGS SECTION -->
+
     </main>
     <!--/ MAIN -->
 

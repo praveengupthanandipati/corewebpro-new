@@ -1,12 +1,3 @@
-/**
- * BENSALEM NEW - INTERACTIVE SCROLL ANIMATIONS SYSTEM
- * Lightweight, high-performance scroll reveal using IntersectionObserver.
- * Features:
- *   - IntersectionObserver triggers
- *   - Staggered animations using 'data-reveal-delay'
- *   - Repeat animations up/down using 'data-reveal-repeat="true"'
- */
-
 /* -----------------------------------------------
    NAV LOGO SVG — injected into #navLogoBrand
 ----------------------------------------------- */
@@ -68,7 +59,6 @@ var ICONS = {
     socialTw:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>',
     socialIg:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
     socialLi:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>',
-    socialYt:     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.48z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>',
     socialWa:     '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>',
 };
 
@@ -87,11 +77,11 @@ var ICONS = {
 /* -----------------------------------------------
    PAGE PRELOADER
 ----------------------------------------------- */
-window.addEventListener("load", function () {
-    var preloader = document.getElementById("pagePreloader");
+window.addEventListener('load', function () {
+    var preloader = document.getElementById('pagePreloader');
     if (preloader) {
-        preloader.classList.add("is-hidden");
-        preloader.addEventListener("transitionend", function () {
+        preloader.classList.add('is-hidden');
+        preloader.addEventListener('transitionend', function () {
             preloader.remove();
         }, { once: true });
     }
@@ -124,165 +114,8 @@ AOS.init({
 }());
 
 /* -----------------------------------------------
-   HEADER TOP BAR — HIDE ON SCROLL
+   HERO SWIPER
 ----------------------------------------------- */
-(function () {
-    var header    = document.querySelector('header');
-    var headerTop = document.querySelector('.header-top');
-    if (!header || !headerTop) return;
-
-    var topHeight = 0;
-
-    function measureTop() {
-        topHeight = headerTop.offsetHeight;
-    }
-
-    function onScroll() {
-        if (window.scrollY > 60) {
-            header.style.transform = 'translateY(-' + topHeight + 'px)';
-        } else {
-            header.style.transform = '';
-        }
-    }
-
-    measureTop();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', measureTop, { passive: true });
-}());
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Select all elements designed to reveal on scroll
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if (revealElements.length === 0) {
-        return;
-    }
-
-    // Observer Callback Function
-    const revealCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            const el = entry.target;
-            const delay = parseInt(el.getAttribute("data-reveal-delay"), 10) || 0;
-            const repeat = el.getAttribute("data-reveal-repeat") === "true";
-
-            if (entry.isIntersecting) {
-                // Element entered viewport: add active state (trigger transition)
-                if (delay > 0) {
-                    setTimeout(() => {
-                        el.classList.add("active");
-                    }, delay);
-                } else {
-                    el.classList.add("active");
-                }
-
-                // If repeat is false (default), stop observing once shown to save resources
-                if (!repeat) {
-                    observer.unobserve(el);
-                }
-            } else {
-                // Element exited viewport: if repeat is enabled, reset to initial state
-                if (repeat) {
-                    el.classList.remove("active");
-                }
-            }
-        });
-    };
-
-    // Observer Configuration Options
-    const observerOptions = {
-        root: null, // Default is viewport
-        // bottom margin offset: triggers animation when element is slightly inside the viewport
-        rootMargin: "0px 0px -8% 0px", 
-        threshold: 0.10 // 10% visibility threshold
-    };
-
-    // Initialize IntersectionObserver
-    const observer = new IntersectionObserver(revealCallback, observerOptions);
-
-    // Register all elements to observer
-    revealElements.forEach(el => {
-        observer.observe(el);
-    });
-
-    // --- Mobile Offcanvas Menu Polish ---
-    const offcanvasEl = document.getElementById("mobileMenuOffcanvas");
-    if (offcanvasEl) {
-        // Auto-close offcanvas when clicking any anchor link inside it
-        const offcanvasLinks = offcanvasEl.querySelectorAll('a[href^="#"]');
-        offcanvasLinks.forEach(link => {
-            link.addEventListener("click", () => {
-                const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasEl);
-                if (offcanvasInstance) {
-                    offcanvasInstance.hide();
-                }
-            });
-        });
-
-    }
-});
-
-
-/* -----------------------------------------------
-   GALLERY LIGHTBOX
------------------------------------------------ */
-(function () {
-    var items    = Array.from(document.querySelectorAll('.gallery-item'));
-    var lightbox = document.getElementById('galleryLightbox');
-    var lbImg    = document.getElementById('lightboxImg');
-    var lbClose  = document.getElementById('lightboxClose');
-    var lbPrev   = document.getElementById('lightboxPrev');
-    var lbNext   = document.getElementById('lightboxNext');
-    var lbCount  = document.getElementById('lightboxCounter');
-
-    if (!lightbox || items.length === 0) return;
-
-    var current = 0;
-
-    function open(index) {
-        current = index;
-        show(current);
-        lightbox.classList.add('is-open');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function close() {
-        lightbox.classList.remove('is-open');
-        document.body.style.overflow = '';
-    }
-
-    function show(index) {
-        var src = items[index].querySelector('img').src;
-        var alt = items[index].querySelector('img').alt;
-        lbImg.classList.add('is-loading');
-        lbImg.onload = function () { lbImg.classList.remove('is-loading'); };
-        lbImg.src = src;
-        lbImg.alt = alt;
-        lbCount.textContent = (index + 1) + ' / ' + items.length;
-    }
-
-    function prev() { current = (current - 1 + items.length) % items.length; show(current); }
-    function next() { current = (current + 1) % items.length;                show(current); }
-
-    items.forEach(function (item, i) {
-        item.addEventListener('click', function () { open(i); });
-    });
-
-    lbClose.addEventListener('click', close);
-    lbPrev.addEventListener('click', prev);
-    lbNext.addEventListener('click', next);
-
-    lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) close();
-    });
-
-    document.addEventListener('keydown', function (e) {
-        if (!lightbox.classList.contains('is-open')) return;
-        if (e.key === 'Escape')     close();
-        if (e.key === 'ArrowLeft')  prev();
-        if (e.key === 'ArrowRight') next();
-    });
-}());
-
 var heroSwiperEl = document.querySelector('.homeslider');
 var swiper = heroSwiperEl ? new Swiper('.homeslider', {
     loop: true,
@@ -297,7 +130,6 @@ var swiper = heroSwiperEl ? new Swiper('.homeslider', {
     },
     on: {
         init: function () {
-            /* Use timeout so Swiper finishes positioning slides before we animate */
             setTimeout(function () {
                 var activeSlide = heroSwiperEl.querySelector('.swiper-slide-active');
                 if (activeSlide) {
@@ -326,7 +158,8 @@ var swiper = heroSwiperEl ? new Swiper('.homeslider', {
 /* -----------------------------------------------
    TESTIMONIAL SWIPER
 ----------------------------------------------- */
-var testiSwiper = new Swiper('.testimonial-swiper', {
+var testiEl = document.querySelector('.testimonial-swiper');
+var testiSwiper = testiEl ? new Swiper('.testimonial-swiper', {
     loop: true,
     speed: 700,
     slidesPerView: 1,
@@ -351,14 +184,13 @@ var testiSwiper = new Swiper('.testimonial-swiper', {
         init: function () { initTestiReadMore(); },
         resize: function () { initTestiReadMore(); },
     },
-});
+}) : null;
 
 /* -----------------------------------------------
    TESTIMONIAL READ MORE / READ LESS
 ----------------------------------------------- */
 function initTestiReadMore() {
     document.querySelectorAll('.testi-text').forEach(function (el) {
-        /* skip if button already injected */
         if (el.nextElementSibling && el.nextElementSibling.classList.contains('testi-read-more')) return;
 
         var btn = document.createElement('button');
@@ -367,7 +199,6 @@ function initTestiReadMore() {
 
         el.parentNode.insertBefore(btn, el.nextSibling);
 
-        /* show button only when text actually overflows */
         if (el.scrollHeight > el.clientHeight + 2) {
             btn.classList.add('is-visible');
         }
@@ -388,169 +219,11 @@ function initTestiReadMore() {
     if (!btn) return;
 
     window.addEventListener('scroll', function () {
-        if (window.scrollY > 320) {
-            btn.classList.add('is-visible');
-        } else {
-            btn.classList.remove('is-visible');
-        }
+        btn.classList.toggle('is-visible', window.scrollY > 320);
     }, { passive: true });
 
     btn.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}());
-
-/* -----------------------------------------------
-   CHATBOT WIDGET
------------------------------------------------ */
-(function () {
-    var chatbot  = document.getElementById('chatbot');
-    var toggle   = document.getElementById('chatbotToggle');
-    var closeBtn = document.getElementById('chatbotClose');
-    var messages = document.getElementById('chatbotMessages');
-    var input    = document.getElementById('chatbotInput');
-    var sendBtn  = document.getElementById('chatbotSend');
-    var qrWrap   = document.getElementById('chatbotQuickReplies');
-
-    if (!chatbot) return;
-
-    var opened = false;
-
-    var GREETING = 'Hi there! Welcome to <strong>Bensalem Smiles 4 U</strong>. How can I help you today?';
-
-    var RESPONSES = [
-        {
-            keys: ['book', 'appointment', 'schedule', 'reserve', 'visit'],
-            html: 'You can book an appointment online! <a href="appointment.php">Click here to Book Now &rarr;</a>'
-        },
-        {
-            keys: ['hour', 'open', 'timing', 'when', 'close', 'closing', 'office hours'],
-            html: '<strong>Our Office Hours:</strong><br>Mon &ndash; Fri: 9:00 AM &ndash; 6:00 PM<br>Saturday: 9:00 AM &ndash; 2:00 PM<br>Sunday: Closed'
-        },
-        {
-            keys: ['location', 'address', 'where', 'find us', 'direction', 'map'],
-            html: 'We are located at:<br><strong>1044 Byberry Rd, Bensalem, PA 19020</strong><br><a href="contact.php">Get Directions &rarr;</a>'
-        },
-        {
-            keys: ['phone', 'call', 'number', 'contact', 'reach'],
-            html: 'Give us a call at <strong><a href="tel:2156383350">(215) 638-3350</a></strong> &mdash; we\'re happy to help!'
-        },
-        {
-            keys: ['service', 'offer', 'treatment', 'procedure', 'provide', 'our service'],
-            html: 'We offer a wide range of services:<br>&bull; <a href="preventive-dentistry.php">Preventive Dentistry</a><br>&bull; <a href="cosmetic-dentistry.php">Cosmetic Dentistry</a><br>&bull; <a href="implant-dental.php">Dental Implants</a><br>&bull; <a href="invisalign.php">Invisalign</a><br>&bull; <a href="root-canal-treatment.php">Root Canal</a><br>&bull; <a href="tooth-whitening.php">Teeth Whitening</a><br>&bull; <a href="same-day-crowns.php">Same Day Crowns</a>'
-        },
-        {
-            keys: ['insurance', 'cover', 'plan', 'accept'],
-            html: 'We accept most major dental insurance plans. No insurance? We have affordable patient plans too! <a href="contact.php">Contact us</a> for details.'
-        },
-        {
-            keys: ['implant', 'missing tooth', 'missing teeth'],
-            html: 'We provide permanent, natural-looking dental implants. <a href="implant-dental.php">Learn more &rarr;</a>'
-        },
-        {
-            keys: ['invisalign', 'aligner', 'brace', 'straighten', 'clear aligner'],
-            html: 'Yes! We offer Invisalign clear aligners for a discreet way to straighten your teeth. <a href="invisalign.php">Learn more &rarr;</a>'
-        },
-        {
-            keys: ['whiten', 'whitening', 'bleach', 'bright', 'stain'],
-            html: 'Our professional teeth whitening brightens your smile by several shades in one visit! <a href="tooth-whitening.php">Learn more &rarr;</a>'
-        },
-        {
-            keys: ['crown', 'cerec', 'same day crown'],
-            html: 'We offer Same Day Crowns using advanced CEREC technology &mdash; no second visit needed! <a href="same-day-crowns.php">Learn more &rarr;</a>'
-        },
-        {
-            keys: ['emergency', 'pain', 'hurt', 'urgent', 'ache', 'broken', 'crack'],
-            html: 'For dental emergencies, call us immediately at <strong><a href="tel:2156383350">(215) 638-3350</a></strong>. We accommodate same-day emergency appointments.'
-        },
-        {
-            keys: ['children', 'child', 'kid', 'kids', 'pediatric', 'baby'],
-            html: 'We welcome children! Our gentle team makes dental visits fun for kids. <a href="pediatric-dentistry.php">Learn more &rarr;</a>'
-        },
-        {
-            keys: ['cost', 'price', 'fee', 'afford', 'cheap', 'expensive', 'fair price'],
-            html: 'We believe in fair, transparent pricing. <a href="fair-prices.php">View our pricing &rarr;</a>'
-        },
-        {
-            keys: ['root canal'],
-            html: 'Our painless root canal therapy saves your natural tooth and relieves discomfort quickly. <a href="root-canal-treatment.php">Learn more &rarr;</a>'
-        },
-        {
-            keys: ['hi', 'hello', 'hey', 'howdy', 'good morning', 'good afternoon', 'good evening'],
-            html: 'Hello! How can I help you today? Ask me about our services, hours, or how to book an appointment!'
-        },
-    ];
-
-    var DEFAULT = 'I\'m not sure about that, but our team can help! Call <strong><a href="tel:2156383350">(215) 638-3350</a></strong> or <a href="contact.php">send us a message &rarr;</a>';
-
-    function openChat() {
-        opened = true;
-        chatbot.classList.add('is-open');
-        if (!messages.hasChildNodes()) {
-            appendBot(GREETING);
-        }
-        setTimeout(function () { input.focus(); }, 350);
-    }
-
-    function closeChat() {
-        opened = false;
-        chatbot.classList.remove('is-open');
-    }
-
-    function appendMsg(html, type) {
-        var div = document.createElement('div');
-        div.className = 'chatbot__msg chatbot__msg--' + type;
-        div.innerHTML = html;
-        messages.appendChild(div);
-        messages.scrollTop = messages.scrollHeight;
-    }
-
-    function appendBot(html) { appendMsg(html, 'bot'); }
-    function appendUser(text) { appendMsg(escapeHtml(text), 'user'); }
-
-    function escapeHtml(str) {
-        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    }
-
-    function showTyping() {
-        var el = document.createElement('div');
-        el.className = 'chatbot__typing';
-        el.innerHTML = '<span></span><span></span><span></span>';
-        messages.appendChild(el);
-        messages.scrollTop = messages.scrollHeight;
-        return el;
-    }
-
-    function getResponse(text) {
-        var lower = text.toLowerCase();
-        for (var i = 0; i < RESPONSES.length; i++) {
-            var r = RESPONSES[i];
-            for (var j = 0; j < r.keys.length; j++) {
-                if (lower.indexOf(r.keys[j]) !== -1) return r.html;
-            }
-        }
-        return DEFAULT;
-    }
-
-    function send(text) {
-        text = text.trim();
-        if (!text) return;
-        appendUser(text);
-        input.value = '';
-        var typing = showTyping();
-        setTimeout(function () {
-            if (typing.parentNode) typing.parentNode.removeChild(typing);
-            appendBot(getResponse(text));
-        }, 750 + Math.random() * 350);
-    }
-
-    toggle.addEventListener('click', function () { opened ? closeChat() : openChat(); });
-    closeBtn.addEventListener('click', closeChat);
-    sendBtn.addEventListener('click', function () { send(input.value); });
-    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') send(input.value); });
-    qrWrap.addEventListener('click', function (e) {
-        var btn = e.target.closest('.chatbot__qr');
-        if (btn) send(btn.getAttribute('data-msg'));
     });
 }());
 
@@ -572,7 +245,7 @@ document.querySelectorAll('.faq-q').forEach(function (btn) {
     });
 });
 
-/* ------------------------------------------------
+/* -----------------------------------------------
    MOBILE NAV ACCORDION — offcanvas menu
 ----------------------------------------------- */
 document.querySelectorAll('.mob-nav__toggle').forEach(function (btn) {

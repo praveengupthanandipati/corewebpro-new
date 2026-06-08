@@ -1,7 +1,7 @@
 <?php
 $page_meta = '
     <title>Sitemap | Core Web Pro – Web Design &amp; Development Hyderabad</title>
-    <meta name="description" content="Browse all pages of the Core Web Pro website — services, portfolio, pricing, blog and more.">
+    <meta name="description" content="Browse all pages of the Core Web Pro website — services, portfolio, pricing and more.">
     <meta name="robots" content="noindex, follow">
     <link rel="canonical" href="https://www.corewebpro.com/sitemap.php">
 ';

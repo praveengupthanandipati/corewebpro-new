@@ -72,10 +72,6 @@ $_services_pages = ['web-designing.php', 'web-development.php', 'seo-digital-mar
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link<?= _nav_active(['blogs.php', 'blog.php', 'blog-detail.php'], $_cur) ?>" href="blogs.php">Blogs</a>
-                        </li>
-
-                        <li class="nav-item">
                             <a class="nav-link<?= _nav_active(['contact.php'], $_cur) ?>" href="contact.php">Contact</a>
                         </li>
 
@@ -150,10 +146,6 @@ $_services_pages = ['web-designing.php', 'web-development.php', 'seo-digital-mar
 
                         <li class="mob-nav__item">
                             <a href="pricing.php" class="mob-nav__link<?= _nav_active(['pricing.php'], $_cur) ?>">Pricing</a>
-                        </li>
-
-                        <li class="mob-nav__item">
-                            <a href="blogs.php" class="mob-nav__link<?= _nav_active(['blogs.php','blog.php','blog-detail.php'], $_cur) ?>">Blogs</a>
                         </li>
 
                         <li class="mob-nav__item">

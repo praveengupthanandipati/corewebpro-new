@@ -311,36 +311,6 @@ require_once 'components/hero-data.php';
         </section>
         <!--/ TECHNOLOGIES SECTION -->
 
-        <!-- ===== RECENT BLOGS SECTION ===== -->
-        <?php
-        require_once 'components/blog-data.php';
-        ?>
-        <section class="blogs-section" id="blogs">
-            <div class="container-90">
-
-                <div class="blogs-header" data-aos="fade-up" data-aos-duration="700">
-                    <div class="blogs-header__left">
-                        <span class="blogs-eyebrow">Our Blog</span>
-                        <h2 class="blogs-title">Latest <span>Insights</span> &amp; Articles</h2>
-                        <p class="blogs-subtitle">Stay ahead with expert tips, industry trends and deep dives into web design, development and emerging technologies.</p>
-                    </div>
-                    <a href="blogs.php" class="blogs-view-all">View All Blogs <span class="blogs-view-all__arrow">&#8599;</span></a>
-                </div>
-
-                <div class="blogs-grid">
-                    <?php
-                    $home_posts = array_slice($blog_posts, 0, 4);
-                    foreach ($home_posts as $i => $post) {
-                        $delay = $i * 100;
-                        include 'components/blog-card.php';
-                    }
-                    ?>
-                </div>
-
-            </div>
-        </section>
-        <!--/ RECENT BLOGS SECTION -->
-
     </main>
     <!--/ MAIN -->
 

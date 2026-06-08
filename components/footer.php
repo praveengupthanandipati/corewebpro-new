@@ -80,5 +80,59 @@
     <script src="js/aos.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/scripts.js"></script>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+        <div class="cookie-banner__inner">
+            <div class="cookie-banner__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="8.5" cy="9" r="1" fill="currentColor" stroke="none"/>
+                    <circle cx="14" cy="8" r="1" fill="currentColor" stroke="none"/>
+                    <circle cx="15.5" cy="14" r="1" fill="currentColor" stroke="none"/>
+                    <circle cx="9" cy="15" r="1" fill="currentColor" stroke="none"/>
+                    <circle cx="12.5" cy="12" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+            </div>
+            <div class="cookie-banner__body">
+                <h4 class="cookie-banner__title">We use cookies</h4>
+                <p class="cookie-banner__text">We use cookies to enhance your browsing experience, analyse site traffic and personalise content. By clicking <strong>Accept All</strong>, you consent to our use of cookies. You can manage your preferences at any time.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="cookie-banner__btn cookie-banner__btn--decline" id="cookieDecline" type="button">Decline</button>
+                <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" type="button">Accept All</button>
+            </div>
+            <button class="cookie-banner__close" id="cookieClose" aria-label="Close cookie banner" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    (function () {
+        var banner  = document.getElementById('cookieBanner');
+        var KEY     = 'cwp_cookie_consent';
+
+        function hideBanner() {
+            banner.classList.remove('cookie-banner--visible');
+            banner.classList.add('cookie-banner--hidden');
+        }
+
+        function saveAndHide(value) {
+            try { localStorage.setItem(KEY, value); } catch (e) {}
+            hideBanner();
+        }
+
+        if (!localStorage.getItem(KEY)) {
+            setTimeout(function () {
+                banner.classList.add('cookie-banner--visible');
+            }, 900);
+        }
+
+        document.getElementById('cookieAccept').addEventListener('click', function () { saveAndHide('accepted'); });
+        document.getElementById('cookieDecline').addEventListener('click', function () { saveAndHide('declined'); });
+        document.getElementById('cookieClose').addEventListener('click', function () { hideBanner(); });
+    })();
+    </script>
 </body>
 </html>

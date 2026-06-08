@@ -20,7 +20,6 @@ $sitemap_groups = [
             ['href' => 'team.php',      'label' => 'Our Team',    'desc' => 'Meet the designers and developers behind Core Web Pro'],
             ['href' => 'portfolio.php', 'label' => 'Portfolio',   'desc' => 'Showcasing our best web design and development work'],
             ['href' => 'pricing.php',   'label' => 'Pricing',     'desc' => 'Transparent packages with no hidden charges'],
-            ['href' => 'blogs.php',     'label' => 'Blog',        'desc' => 'Articles on web design, development and digital marketing'],
             ['href' => 'contact.php',   'label' => 'Contact Us',  'desc' => 'Phone, email, WhatsApp or enquiry form'],
             ['href' => 'enquiry.php',   'label' => 'Get a Quote', 'desc' => 'Submit your project details for a free proposal'],
         ],

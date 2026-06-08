@@ -7,6 +7,35 @@ function _nav_active(array $pages, string $cur, string $cls = 'active'): string 
 
 $_company_pages  = ['about.php', 'team.php', 'portfolio.php'];
 $_services_pages = ['web-designing.php', 'web-development.php', 'seo-digital-marketing.php', 'mobile-development.php'];
+
+/* ── HTML output minifier ───────────────────────────────────────────
+ * Runs once at script end via ob_start callback.
+ * Protects <script>, <style>, <pre>, <textarea> content from stripping.
+ * Removes HTML comments; collapses whitespace runs to a single space.
+ */
+function cwp_minify_html(string $buf): string {
+    $slots = [];
+    // Protect tags whose content must not be whitespace-stripped
+    $buf = preg_replace_callback(
+        '/<(script|style|pre|textarea)(\s[^>]*)?>.*?<\/\1>/si',
+        function (array $m) use (&$slots): string {
+            $id = "\x02" . count($slots) . "\x03";
+            $slots[$id] = $m[0];
+            return $id;
+        },
+        $buf
+    );
+    // Remove HTML comments (preserve IE conditional comments)
+    $buf = preg_replace('/<!--(?!\[if\s)[\s\S]*?-->/u', '', $buf);
+    // Collapse any run of whitespace (spaces, tabs, newlines) to one space
+    $buf = preg_replace('/\s{2,}/', ' ', $buf);
+    // Restore protected blocks verbatim
+    foreach ($slots as $id => $val) {
+        $buf = str_replace($id, $val, $buf);
+    }
+    return trim($buf);
+}
+ob_start('cwp_minify_html');
 ?>
 <!DOCTYPE html>
 <html lang="en">

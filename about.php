@@ -122,39 +122,18 @@ include 'components/header.php';
                     <h2 class="inner-title">Our Core <span>Values</span></h2>
                 </div>
 
+                <?php require_once 'components/about-values-data.php'; ?>
                 <div class="values-grid">
 
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="650">
+                    <?php foreach ($core_values as $i => $val): $d = $i * 100; ?>
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="<?= $d ?>" data-aos-duration="650">
                         <div class="value-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?= $val['svg'] ?></svg>
                         </div>
-                        <h4 class="value-card__title">Integrity</h4>
-                        <p class="value-card__desc">We are upfront about timelines, costs and what is achievable. No hidden charges, no over-promising — just honest communication and full accountability from brief to delivery.</p>
+                        <h4 class="value-card__title"><?= htmlspecialchars($val['title']) ?></h4>
+                        <p class="value-card__desc"><?= htmlspecialchars($val['desc']) ?></p>
                     </div>
-
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="650">
-                        <div class="value-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                        </div>
-                        <h4 class="value-card__title">Innovation</h4>
-                        <p class="value-card__desc">We stay current with evolving design trends, development frameworks and AI-assisted workflows — so every website we deliver is built on modern, future-ready foundations.</p>
-                    </div>
-
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="650">
-                        <div class="value-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                        </div>
-                        <h4 class="value-card__title">Client-First</h4>
-                        <p class="value-card__desc">Your goals are our goals. We invest time in understanding your business before a single pixel is designed — because the right solution always starts with the right understanding.</p>
-                    </div>
-
-                    <div class="value-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="650">
-                        <div class="value-card__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-                        </div>
-                        <h4 class="value-card__title">Quality</h4>
-                        <p class="value-card__desc">We do not ship work we are not proud of. Every pixel, every function and every interaction is reviewed, tested and polished before delivery — quality is non-negotiable.</p>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>
@@ -170,43 +149,16 @@ include 'components/header.php';
                     <h2 class="inner-title">Our Working <span>Policies</span></h2>
                 </div>
 
+                <?php require_once 'components/about-policies-data.php'; ?>
                 <div class="policies-grid">
 
-                    <div class="policy-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="650">
-                        <div class="policy-card__num">01</div>
-                        <h4 class="policy-card__title">Full Confidentiality</h4>
-                        <p class="policy-card__text">All project details, business data and client information are kept strictly private. We sign NDAs on request and never showcase or share your work without explicit written approval.</p>
+                    <?php foreach ($working_policies as $i => $policy): $d = $i * 80; ?>
+                    <div class="policy-card" data-aos="fade-up" data-aos-delay="<?= $d ?>" data-aos-duration="650">
+                        <div class="policy-card__num"><?= sprintf('%02d', $i + 1) ?></div>
+                        <h4 class="policy-card__title"><?= htmlspecialchars($policy['title']) ?></h4>
+                        <p class="policy-card__text"><?= htmlspecialchars($policy['desc']) ?></p>
                     </div>
-
-                    <div class="policy-card" data-aos="fade-up" data-aos-delay="80" data-aos-duration="650">
-                        <div class="policy-card__num">02</div>
-                        <h4 class="policy-card__title">Clear, Honest Pricing</h4>
-                        <p class="policy-card__text">Every engagement starts with a detailed, itemised proposal. No surprise charges and no scope changes without prior discussion. What is agreed is exactly what you pay.</p>
-                    </div>
-
-                    <div class="policy-card" data-aos="fade-up" data-aos-delay="160" data-aos-duration="650">
-                        <div class="policy-card__num">03</div>
-                        <h4 class="policy-card__title">Deadline Commitment</h4>
-                        <p class="policy-card__text">We set realistic timelines and honour them. If anything changes, we communicate early — never at the last minute. Your launch date is treated with the same urgency as our own.</p>
-                    </div>
-
-                    <div class="policy-card" data-aos="fade-up" data-aos-delay="240" data-aos-duration="650">
-                        <div class="policy-card__num">04</div>
-                        <h4 class="policy-card__title">Post-Launch Support</h4>
-                        <p class="policy-card__text">Every project we deliver includes a free support window for bug fixes. Ongoing maintenance retainers are available to keep your site fast, secure and up to date.</p>
-                    </div>
-
-                    <div class="policy-card" data-aos="fade-up" data-aos-delay="320" data-aos-duration="650">
-                        <div class="policy-card__num">05</div>
-                        <h4 class="policy-card__title">You Own Everything</h4>
-                        <p class="policy-card__text">On full payment, all design files, source code and assets we create for you are yours entirely. Full IP transfer — no lock-ins, no licensing conditions.</p>
-                    </div>
-
-                    <div class="policy-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="650">
-                        <div class="policy-card__num">06</div>
-                        <h4 class="policy-card__title">Ethical &amp; Clean Work</h4>
-                        <p class="policy-card__text">We don't use black-hat tactics, deceptive patterns or shortcuts that hurt you later. Every solution we build is standards-compliant, accessible and made to last.</p>
-                    </div>
+                    <?php endforeach; ?>
 
                 </div>
             </div>

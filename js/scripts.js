@@ -553,3 +553,39 @@ function initTestiReadMore() {
         if (btn) send(btn.getAttribute('data-msg'));
     });
 }());
+
+/* -----------------------------------------------
+   FAQ ACCORDION — shared across all pages
+----------------------------------------------- */
+document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        var item   = btn.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function (o) {
+            o.classList.remove('open');
+            o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
+
+/* ------------------------------------------------
+   MOBILE NAV ACCORDION — offcanvas menu
+----------------------------------------------- */
+document.querySelectorAll('.mob-nav__toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        var group  = btn.closest('.mob-nav__item--group');
+        var isOpen = group.classList.contains('is-open');
+        document.querySelectorAll('.mob-nav__item--group.is-open').forEach(function (g) {
+            g.classList.remove('is-open');
+            g.querySelector('.mob-nav__toggle').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+            group.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+    });
+});

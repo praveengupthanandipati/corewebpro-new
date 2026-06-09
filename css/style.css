@@ -998,7 +998,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1421,7 +1421,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* Step description */
 .process-step__desc {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: #64748b;
     line-height: 1.68;
     margin: 0;
@@ -1548,12 +1548,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     align-items: center;
     gap: 0;
     width: max-content;
-    animation: clientsScroll 32s linear infinite;
+    animation: clientsScroll 50s linear infinite;
 }
 
 @keyframes clientsScroll {
     from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    to   { transform: translateX(-20%); }
 }
 
 /* Individual logo cell */
@@ -1566,9 +1566,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .client-logo img {
-    height: 150px;
-    width: auto;
-    max-width: 150px;
+    /* height: 150px; */
+    /* width: auto; */
+    max-width: 180px;
     object-fit: contain;
     filter: grayscale(100%) opacity(0.45);
     transition: filter 0.35s ease, transform 0.35s ease;
@@ -1640,7 +1640,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .testi-eyebrow {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -1853,7 +1853,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .testi-author__role {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.45);
     white-space: nowrap;
     overflow: hidden;
@@ -1996,7 +1996,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .tech-eyebrow {
     display: inline-block;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -3402,7 +3402,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
         gap: 10px;
     }
     .footer-bottom__inner p {
-        font-size: 0.78rem;
+        font-size: 0.85rem;
     }
 
     /* Floating — very small phones */
@@ -3843,6 +3843,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     position: relative;
     overflow: hidden;
     aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #f5f0ff 100%);
 }
 
 .pf-card__thumb img:not(.pf-card__logo) {
@@ -3857,23 +3858,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     transform: scale(1.07);
 }
 
-/* Project logo badge (bottom-left of thumb) */
+/* Project logo — top-left of thumb */
 .pf-card__logo-wrap {
     position: absolute;
-    bottom: 14px;
+    top: 16px;
     left: 16px;
     z-index: 2;
     background: #fff;
-    border-radius: 12px;
-    padding: 4px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+    padding: 6px 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
 
 .pf-card__logo {
-    width: 44px;
-    height: 44px;
-    border-radius: 9px;
     display: block;
+    height: 36px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
 }
 
 /* Hover overlay with "View Live" button */
@@ -3949,11 +3951,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     padding: 4px 11px;
 }
 
-.pf-badge--graphic {
-    background: rgba(234, 88, 12, 0.1);
-    color: #ea580c;
-}
-
 .pf-badge--webdesign {
     background: rgba(0, 43, 134, 0.1);
     color: var(--bs-primary);
@@ -3962,6 +3959,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .pf-badge--webdev {
     background: rgba(22, 163, 74, 0.1);
     color: #16a34a;
+}
+
+.pf-badge--seo {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+.pf-badge--mobileapp {
+    background: rgba(139, 92, 246, 0.1);
+    color: #7c3aed;
 }
 
 /* Business type tag */
@@ -3993,7 +4000,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: var(--bs-primary);
     text-decoration: none;
@@ -4053,7 +4060,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 @media (max-width: 575.98px) {
     .pf-card__body { padding: 18px 18px 20px; }
-    .pf-filter     { padding: 8px 16px; font-size: 0.78rem; }
+    .pf-filter     { padding: 8px 16px; font-size: 0.85rem; }
 }
 
 /* ============================================================
@@ -5084,7 +5091,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     display: flex;
     align-items: center;
     gap: 7px;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: #64748b;
     background: var(--color-light-bg);
     border: 1px solid var(--color-border);
@@ -5341,7 +5348,7 @@ thead .pricing-table__highlight {
 }
 
 .addon-card__desc {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: #94a3b8;
     margin: 0;
     line-height: 1.5;

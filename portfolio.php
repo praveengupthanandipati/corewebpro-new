@@ -46,9 +46,10 @@ include 'components/header.php';
                 <!-- Filter tabs -->
                 <div class="pf-filters" data-aos="fade-up" data-aos-duration="500" data-aos-delay="80">
                     <button class="pf-filter active" data-filter="all">All Projects</button>
-                    <button class="pf-filter" data-filter="graphic">Graphic Designing</button>
                     <button class="pf-filter" data-filter="webdesign">Web Designing</button>
                     <button class="pf-filter" data-filter="webdev">Web Development</button>
+                    <button class="pf-filter" data-filter="seo">SEO & Digital Marketing</button>
+                    <button class="pf-filter" data-filter="mobileapp">Mobile APP Development</button>
                 </div>
 
                 <?php require_once 'components/portfolio-data.php'; ?>
@@ -58,9 +59,8 @@ include 'components/header.php';
                     <?php foreach ($portfolio_items as $i => $pf): $d = ($i % 3) * 80; ?>
                     <div class="pf-card" data-cat="<?= htmlspecialchars($pf['cat']) ?>" data-aos="fade-up" data-aos-delay="<?= $d ?>" data-aos-duration="650">
                         <div class="pf-card__thumb">
-                            <img src="https://picsum.photos/seed/<?= htmlspecialchars($pf['seed']) ?>/600/380" alt="<?= htmlspecialchars($pf['alt']) ?>" loading="lazy">
                             <div class="pf-card__logo-wrap">
-                                <img src="https://ui-avatars.com/api/?name=<?= urlencode($pf['logo_name']) ?>&background=<?= htmlspecialchars($pf['logo_bg']) ?>&color=fff&size=80&font-size=0.4&bold=true&rounded=true" alt="<?= htmlspecialchars($pf['logo_name']) ?> Logo" class="pf-card__logo">
+                                <img src="<?= htmlspecialchars($pf['logo']) ?>" alt="<?= htmlspecialchars($pf['logo_alt']) ?> Logo" class="pf-card__logo">
                             </div>
                             <div class="pf-card__overlay">
                                 <a href="<?= htmlspecialchars($pf['href']) ?>" target="_blank" rel="noopener noreferrer" class="pf-card__live">

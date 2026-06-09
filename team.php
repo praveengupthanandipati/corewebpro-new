@@ -47,18 +47,6 @@ include 'components/header.php';
 
                     <?php foreach ($team_members as $i => $member): $d = $i * 120; ?>
                     <div class="team-card" data-aos="fade-up" data-aos-delay="<?= $d ?>" data-aos-duration="700">
-                        <div class="team-card__photo-wrap">
-                            <img src="<?= htmlspecialchars($member['photo']) ?>" alt="<?= htmlspecialchars($member['alt']) ?>" class="team-card__photo" loading="lazy">
-                            <div class="team-card__overlay">
-                                <div class="team-card__social">
-                                    <?php foreach ($member['social'] as $link): ?>
-                                    <a href="<?= htmlspecialchars($link['href']) ?>" aria-label="<?= htmlspecialchars($link['label']) ?>" class="team-card__social-link">
-                                        <?= $link['svg'] ?>
-                                    </a>
-                                    <?php endforeach; ?>
-                                </div>
-                            </div>
-                        </div>
                         <div class="team-card__body">
                             <span class="team-card__exp"><?= htmlspecialchars($member['exp']) ?></span>
                             <h3 class="team-card__name"><?= htmlspecialchars($member['name']) ?></h3>
@@ -67,6 +55,13 @@ include 'components/header.php';
                             <div class="team-card__skills">
                                 <?php foreach ($member['skills'] as $skill): ?>
                                 <span class="team-tag"><?= htmlspecialchars($skill) ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="team-card__social">
+                                <?php foreach ($member['social'] as $link): ?>
+                                <a href="<?= htmlspecialchars($link['href']) ?>" aria-label="<?= htmlspecialchars($link['label']) ?>" class="team-card__social-link">
+                                    <?= $link['svg'] ?>
+                                </a>
                                 <?php endforeach; ?>
                             </div>
                         </div>

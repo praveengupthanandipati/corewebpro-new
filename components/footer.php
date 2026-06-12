@@ -38,7 +38,7 @@
                         </li>
                         <li>
                             <span class="footer-contact__icon"><span data-icon="iconEnvelope"></span></span>
-                            <a href="mailto:info@corewebpro.com">info@corewebpro.com</a>
+                            <a href="mailto:info@corewebpro.in">info@corewebpro.in</a>
                         </li>
                     </ul>
 

@@ -40,7 +40,7 @@ $page_meta = '
         "description": "Web design, web development, mobile app development, SEO and digital marketing company based in Hyderabad, Telangana.",
         "url": "https://www.corewebpro.com",
         "logo": "https://www.corewebpro.com/img/logo.svg",
-        "email": "info@corewebpro.com",
+        "email": "info@corewebpro.in",
         "telephone": "+917799971112",
         "address": {
             "@type": "PostalAddress",

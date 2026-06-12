@@ -105,7 +105,7 @@ include 'components/header.php';
                             <p>Send us your portfolio and a short intro — we're always open to meeting talented people, even when we're not actively hiring.</p>
                         </div>
                         <div class="join-cta__actions">
-                            <a href="mailto:info@corewebpro.com?subject=Join%20Core%20Web%20Pro" class="btn-cta-primary">Send Your Portfolio</a>
+                            <a href="mailto:info@corewebpro.in?subject=Join%20Core%20Web%20Pro" class="btn-cta-primary">Send Your Portfolio</a>
                             <a href="https://wa.me/917799971112?text=Hi%2C%20I%27m%20interested%20in%20joining%20Core%20Web%20Pro!" class="btn-cta-outline" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                         </div>
                     </div>

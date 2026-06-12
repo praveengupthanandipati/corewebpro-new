@@ -31,26 +31,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ctct_submit'])) {
         } elseif (strlen($ctct_form['message']) < 10) {
             $ctct_error = 'Your message is too short — please give us a little more detail.';
         } else {
-            $body  = "You have a new contact enquiry from the Core Web Pro website.\n";
+            $to      = 'info@corewebpro.in';
+            $subject = 'New Contact Enquiry from ' . $ctct_form['name'] . ' - Core Web Pro';
+
+            $body  = "New contact enquiry from the Core Web Pro website.\n";
             $body .= str_repeat('-', 50) . "\n\n";
             $body .= "Name    : {$ctct_form['name']}\n";
             $body .= "Email   : {$ctct_form['email']}\n";
             $body .= "Phone   : " . ($ctct_form['phone'] ?: 'Not provided') . "\n\n";
             $body .= "Message :\n{$ctct_form['message']}\n\n";
             $body .= str_repeat('-', 50) . "\n";
-            $body .= "Sent via corewebpro.com contact form\n";
+            $body .= "Sent via corewebpro.in/contact.php\n";
 
-            try {
-                require_once __DIR__ . '/config/mailer.php';
-                $mail = cwp_mailer();
-                $mail->addReplyTo($ctct_form['email'], $ctct_form['name']);
-                $mail->Subject = 'New Contact Enquiry from ' . $ctct_form['name'] . ' – Core Web Pro';
-                $mail->Body    = $body;
-                $mail->send();
+            $headers  = "From: no-reply@corewebpro.in\r\n";
+            $headers .= "Reply-To: {$ctct_form['email']}\r\n";
+            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
+
+            if (mail($to, $subject, $body, $headers)) {
                 $ctct_success = true;
                 $ctct_form    = array_fill_keys(array_keys($ctct_form), '');
-            } catch (\Exception $e) {
-                $ctct_error = 'Sorry, we could not send your message right now. Please email us directly at <a href="mailto:info@corewebpro.com">info@corewebpro.com</a> or WhatsApp us.';
+            } else {
+                $ctct_error = 'Sorry, we could not send your message right now. Please email us directly at <a href="mailto:info@corewebpro.in">info@corewebpro.in</a> or WhatsApp us.';
             }
         }
     }

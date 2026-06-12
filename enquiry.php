@@ -75,18 +75,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enq_submit'])) {
             $body .= str_repeat('=', 50) . "\n";
             $body .= "Sent via corewebpro.com/enquiry.php\n";
 
-            try {
-                require_once __DIR__ . '/config/mailer.php';
-                $mail = cwp_mailer();
-                $mail->addReplyTo($enq_form['email'], $enq_form['name']);
-                $mail->Subject = 'New Project Enquiry from ' . $enq_form['name'] . ' – Core Web Pro';
-                $mail->Body    = $body;
-                $mail->send();
+            $to      = 'info@corewebpro.in';
+            $subject = 'New Project Enquiry from ' . $enq_form['name'] . ' - Core Web Pro';
+
+            $headers  = "From: no-reply@corewebpro.in\r\n";
+            $headers .= "Reply-To: {$enq_form['email']}\r\n";
+            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
+
+            if (mail($to, $subject, $body, $headers)) {
                 $enq_success = true;
                 $enq_form = array_fill_keys(array_keys($enq_form), '');
                 $enq_form['technologies'] = [];
-            } catch (\Exception $e) {
-                $enq_error = 'Message could not be sent. Please email us directly at <a href="mailto:info@corewebpro.com">info@corewebpro.com</a>.';
+            } else {
+                $enq_error = 'Message could not be sent. Please email us directly at <a href="mailto:info@corewebpro.in">info@corewebpro.in</a>.';
             }
         }
     }

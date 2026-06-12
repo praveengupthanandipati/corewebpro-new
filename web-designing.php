@@ -46,17 +46,13 @@ include 'components/header.php';
                         <p>Our web design work focuses entirely on the visual and UX layer — layout, typography, colour, spacing, imagery and interaction. We craft every screen with intent: knowing where the eye travels, what builds trust and what drives clicks.</p>
                         <p>Whether you need a fresh design for a new site, a redesign of an ageing one or just a set of high-fidelity Figma screens ready for a developer — we deliver clean, polished, pixel-perfect design that reflects your brand at its best.</p>
                         <div class="svc-intro__actions">
-                            <a href="contact.php" class="btn btn-primary rounded-pill px-4 py-2">Get a Free Design Quote</a>
-                            <a href="portfolio.php" class="svc-intro__link">
-                                View Our Work
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
+                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Get a Free Design Quote</a>
                         </div>
                     </div>
 
                     <div class="svc-intro__visual" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
                         <div class="svc-intro__img-card">
-                            <img src="https://picsum.photos/seed/webdesignhero/600/480" alt="Web Design Work" loading="lazy">
+                            <img src="img/webdesign01.png" alt="Web Design Work" loading="lazy">
                             <div class="svc-intro__stat-pill svc-intro__stat-pill--1">
                                 <span class="svc-intro__stat-num">150<span>+</span></span>
                                 <span class="svc-intro__stat-label">Designs Delivered</span>

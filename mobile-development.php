@@ -44,17 +44,13 @@ include 'components/header.php';
                         <p>We build cross-platform and native mobile applications using React Native and Flutter for single-codebase apps on both Android and iOS, and Progressive Web Apps (PWAs) for lightweight browser-based mobile experiences. Every app we deliver is responsive, performant and built with real users in mind.</p>
                         <p>From concept and UI design through to app store submission and post-launch support — we handle the complete mobile development lifecycle so you don't have to manage multiple vendors.</p>
                         <div class="svc-intro__actions">
-                            <a href="contact.php" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your App Idea</a>
-                            <a href="portfolio.php" class="svc-intro__link">
-                                View Our Work
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
+                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your App Idea</a>
                         </div>
                     </div>
 
                     <div class="svc-intro__visual" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
                         <div class="svc-intro__img-card">
-                            <img src="https://picsum.photos/seed/mobiledev25/600/480" alt="Mobile App Development" loading="lazy">
+                            <img src="img/mobiledevelopment.jpg" alt="Mobile App Development" loading="lazy">
                             <div class="svc-intro__stat-pill svc-intro__stat-pill--1">
                                 <span class="svc-intro__stat-num">2<span>+</span></span>
                                 <span class="svc-intro__stat-label">Platforms Covered</span>

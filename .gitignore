@@ -1,0 +1,6 @@
+# Dependencies
+vendor/
+composer.lock
+
+# Mail credentials — never commit
+config/mail.php

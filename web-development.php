@@ -46,9 +46,9 @@ include 'components/header.php';
                         <p>Our development work spans the full stack — from pixel-precise frontend implementation to robust backend logic, API design, database architecture and server configuration. We build websites and web applications that are fast to load, secure by default and easy to maintain long-term.</p>
                         <p>Whether you need a static marketing site converted from a Figma design, a CMS-powered website, a REST API or a full custom web application — we have the depth to deliver it properly.</p>
                         <div class="svc-intro__actions">
-                            <a href="contact.php" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your Project</a>
-                            <a href="portfolio.php" class="svc-intro__link">
-                                View Our Work
+                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your Project</a>
+                            <a href="contact.php" class="svc-intro__link">
+                                Contact us
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
                         </div>
@@ -56,7 +56,7 @@ include 'components/header.php';
 
                     <div class="svc-intro__visual" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
                         <div class="svc-intro__img-card">
-                            <img src="https://picsum.photos/seed/webdevhero25/600/480" alt="Web Development Work" loading="lazy">
+                            <img src="img/webdevelopment.jpg" alt="Web Development Work" loading="lazy">
                             <div class="svc-intro__stat-pill svc-intro__stat-pill--1">
                                 <span class="svc-intro__stat-num">50<span>+</span></span>
                                 <span class="svc-intro__stat-label">Apps Delivered</span>

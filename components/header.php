@@ -1,4 +1,11 @@
 <?php
+/* ── Google Analytics 4 Measurement ID ─────────────────────────────
+ * Replace with your actual GA4 property ID from
+ * Google Analytics → Admin → Data Streams → Measurement ID (G-XXXXXXXX).
+ * Set to empty string '' to disable tracking (e.g. on staging).
+ */
+define('CWP_GA_ID', 'G-XXXXXXXXXX');
+
 $_cur = basename($_SERVER['PHP_SELF']);
 
 function _nav_active(array $pages, string $cur, string $cls = 'active'): string {
@@ -49,6 +56,25 @@ ob_start('cwp_minify_html');
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <?php if (defined('CWP_GA_ID') && CWP_GA_ID !== ''): ?>
+    <!-- Google Analytics 4 — performance-safe async load -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?= htmlspecialchars(CWP_GA_ID) ?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<?= htmlspecialchars(CWP_GA_ID) ?>', {
+            page_path: window.location.pathname,
+            anonymize_ip: true,
+            cookie_flags: 'SameSite=None;Secure'
+        });
+    </script>
+    <?php endif; ?>
 </head>
 <body>
 

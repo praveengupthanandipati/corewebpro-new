@@ -142,9 +142,6 @@ $design_whyus = [
 /* ── Design Tools ────────────────────────────────────────────────── */
 $design_tools = [
     [ 'icon' => 'figma/figma-original',           'name' => 'Figma',       'role' => 'UI/UX Design & Prototyping' ],
-    [ 'icon' => 'photoshop/photoshop-plain',       'name' => 'Photoshop',   'role' => 'Image Editing & Web Graphics' ],
-    [ 'icon' => 'illustrator/illustrator-plain',   'name' => 'Illustrator', 'role' => 'Vector Art & Iconography' ],
-    [ 'icon' => 'xd/xd-plain',                     'name' => 'Adobe XD',    'role' => 'Wireframing & Prototypes' ],
     [ 'icon' => 'css3/css3-original',              'name' => 'CSS3',        'role' => 'Styles & Animations' ],
     [ 'icon' => 'html5/html5-original',            'name' => 'HTML5',       'role' => 'Semantic Markup Structure' ],
     [ 'icon' => 'bootstrap/bootstrap-original',    'name' => 'Bootstrap 5', 'role' => 'Responsive Grid & Components' ],

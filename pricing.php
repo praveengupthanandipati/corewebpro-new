@@ -81,7 +81,7 @@ include 'components/header.php';
 
                 <!-- Disclaimer -->
                 <p class="pricing-note" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-                    All prices are exclusive of GST (18%). Prices are indicative — final quote is provided after a free scoping call.
+                    Prices are indicative — final quote is provided after a free scoping call.
                     Need something between packages? <a href="contact.php">Let's talk</a> — we build custom proposals for every project.
                 </p>
 
@@ -102,45 +102,46 @@ include 'components/header.php';
                         <thead>
                             <tr>
                                 <th>Feature</th>
-                                <th>Starter</th>
-                                <th>Business</th>
-                                <th class="pricing-table__highlight">Professional</th>
-                                <th>Enterprise</th>
+                                <th>Single Page</th>
+                                <th>Multi-Page Website</th>
+                                <th class="pricing-table__highlight">E-Commerce</th>
+                                <th>Web App / Portal</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="pricing-table__group"><td colspan="5">Design &amp; Pages</td></tr>
-                            <tr><td>Number of Pages</td><td>Up to 5</td><td>Up to 10</td><td class="pricing-table__highlight">Up to 15</td><td>Unlimited</td></tr>
+                            <tr class="pricing-table__group"><td colspan="5">Design &amp; Development</td></tr>
+                            <tr><td>Pages / Scope</td><td>1 page</td><td>Up to 10 pages</td><td class="pricing-table__highlight">Full store</td><td>Custom scope</td></tr>
                             <tr><td>Custom Design</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr><td>Development (HTML/CSS)</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
                             <tr><td>Mobile Responsive</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
-                            <tr><td>Figma Source File</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr><td>Basic Logo Design</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
                             <tr><td>Revision Rounds</td><td>1</td><td>2</td><td class="pricing-table__highlight">3</td><td>Unlimited</td></tr>
 
-                            <tr class="pricing-table__group"><td colspan="5">Development</td></tr>
-                            <tr><td>HTML/CSS Build</td><td class="n">—</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
-                            <tr><td>CMS Integration</td><td class="n">—</td><td>WordPress</td><td class="pricing-table__highlight">WordPress / Laravel</td><td>Custom</td></tr>
-                            <tr><td>Blog / Portfolio</td><td class="n">—</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr class="pricing-table__group"><td colspan="5">Features &amp; Integrations</td></tr>
+                            <tr><td>Contact Form</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr><td>WhatsApp &amp; Call Integration</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr><td>Product Catalogue &amp; Cart</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
                             <tr><td>Payment Gateway</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
                             <tr><td>Custom Backend / API</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight n">—</td><td class="y">✓</td></tr>
-                            <tr><td>User Dashboards</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight n">—</td><td class="y">✓</td></tr>
+                            <tr><td>Multi-Role Dashboards</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight n">—</td><td class="y">✓</td></tr>
+                            <tr><td>Third-Party API Integrations</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight n">—</td><td class="y">✓</td></tr>
 
-                            <tr class="pricing-table__group"><td colspan="5">SEO &amp; Performance</td></tr>
+                            <tr class="pricing-table__group"><td colspan="5">Domain, Hosting &amp; SEO</td></tr>
+                            <tr><td>Domain (1 Year)</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr><td>Hosting Setup (1 Year)</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
                             <tr><td>Basic On-Page SEO</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
-                            <tr><td>Schema Markup</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
-                            <tr><td>Speed Optimisation</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight y">✓ (90+ score)</td><td class="y">✓</td></tr>
-                            <tr><td>Google Analytics</td><td class="n">—</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
-                            <tr><td>Search Console Setup</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr><td>Google Analytics Setup</td><td class="n">—</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
 
                             <tr class="pricing-table__group"><td colspan="5">Support &amp; Delivery</td></tr>
-                            <tr><td>Delivery Time</td><td>5–7 days</td><td>10–14 days</td><td class="pricing-table__highlight">20–25 days</td><td>4–12 weeks</td></tr>
-                            <tr><td>Post-Launch Support</td><td>15 days</td><td>30 days</td><td class="pricing-table__highlight">60 days</td><td>90 days</td></tr>
-                            <tr><td>WhatsApp Support</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
-                            <tr><td>Dedicated Manager</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight n">—</td><td class="y">✓</td></tr>
+                            <tr><td>Delivery Time</td><td>3–5 days</td><td>10–14 days</td><td class="pricing-table__highlight">20–25 days</td><td>4–12 weeks</td></tr>
+                            <tr><td>Support Duration</td><td>1 year</td><td>1 year</td><td class="pricing-table__highlight">1 year</td><td>1 year</td></tr>
+                            <tr><td>WhatsApp &amp; Call Support</td><td class="y">✓</td><td class="y">✓</td><td class="pricing-table__highlight y">✓</td><td class="y">✓</td></tr>
+                            <tr><td>Dedicated Project Manager</td><td class="n">—</td><td class="n">—</td><td class="pricing-table__highlight n">—</td><td class="y">✓</td></tr>
 
                             <tr class="pricing-table__foot">
-                                <td>Price (+ GST)</td>
-                                <td>₹8,999</td>
-                                <td>₹24,999</td>
+                                <td>Price </td>
+                                <td>₹6,999</td>
+                                <td>₹12,999</td>
                                 <td class="pricing-table__highlight"><strong>₹49,999</strong></td>
                                 <td>Custom</td>
                             </tr>

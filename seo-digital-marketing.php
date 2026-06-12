@@ -46,17 +46,13 @@ include 'components/header.php';
                         <p>We offer end-to-end digital marketing services — from improving your search engine rankings organically through SEO, to running targeted paid campaigns on Google and social platforms that deliver measurable ROI.</p>
                         <p>Everything we do is data-driven and transparent. No vague promises, no black-hat shortcuts — just honest strategy, consistent execution and monthly reports that show exactly what's working.</p>
                         <div class="svc-intro__actions">
-                            <a href="contact.php" class="btn btn-primary rounded-pill px-4 py-2">Get a Free SEO Audit</a>
-                            <a href="#seo-services" class="svc-intro__link">
-                                Explore Services
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </a>
+                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Get a Free SEO Audit</a>
                         </div>
                     </div>
 
                     <div class="svc-intro__visual" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
                         <div class="svc-intro__img-card">
-                            <img src="https://picsum.photos/seed/seodigital25/600/480" alt="SEO and Digital Marketing" loading="lazy">
+                            <img src="img/digitalmarketting.jpg" alt="SEO and Digital Marketing" loading="lazy">
                             <div class="svc-intro__stat-pill svc-intro__stat-pill--1">
                                 <span class="svc-intro__stat-num">3<span>x</span></span>
                                 <span class="svc-intro__stat-label">Avg. Traffic Growth</span>

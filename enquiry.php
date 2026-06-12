@@ -53,9 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enq_submit'])) {
         } elseif (strlen($enq_form['description']) < 20) {
             $enq_error = 'Please describe your project in at least 20 characters.';
         } else {
-            $to      = 'info@corewebpro.com';
-            $subject = '=?UTF-8?B?' . base64_encode('New Project Enquiry from ' . $enq_form['name'] . ' – Core Web Pro') . '?=';
-
             $tech_list = !empty($enq_form['technologies']) ? implode(', ', $enq_form['technologies']) : 'Not specified';
 
             $body  = "NEW PROJECT ENQUIRY — Core Web Pro Website\n";
@@ -78,17 +75,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enq_submit'])) {
             $body .= str_repeat('=', 50) . "\n";
             $body .= "Sent via corewebpro.com/enquiry.php\n";
 
-            $headers  = "MIME-Version: 1.0\r\n";
-            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-            $headers .= "From: Core Web Pro Enquiry <no-reply@corewebpro.com>\r\n";
-            $headers .= "Reply-To: {$enq_form['name']} <{$enq_form['email']}>\r\n";
-            $headers .= "X-Mailer: PHP/" . PHP_VERSION . "\r\n";
-
-            if (mail($to, $subject, $body, $headers)) {
+            try {
+                require_once __DIR__ . '/config/mailer.php';
+                $mail = cwp_mailer();
+                $mail->addReplyTo($enq_form['email'], $enq_form['name']);
+                $mail->Subject = 'New Project Enquiry from ' . $enq_form['name'] . ' – Core Web Pro';
+                $mail->Body    = $body;
+                $mail->send();
                 $enq_success = true;
                 $enq_form = array_fill_keys(array_keys($enq_form), '');
                 $enq_form['technologies'] = [];
-            } else {
+            } catch (\Exception $e) {
                 $enq_error = 'Message could not be sent. Please email us directly at <a href="mailto:info@corewebpro.com">info@corewebpro.com</a>.';
             }
         }
@@ -146,14 +143,16 @@ include 'components/header.php';
                             <p class="enq-form-intro">Fill in the details below — the more you share, the more accurate your quote will be. We'll respond within 24 hours.</p>
                         </div>
 
+                        <div id="enq-anchor" style="position:relative;top:-80px;"></div>
+
                         <?php if ($enq_success): ?>
                         <div class="ctct-success-msg enq-msg-spacing" role="alert">
                             <div class="ctct-success-msg__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             </div>
                             <div>
-                                <strong>Enquiry submitted!</strong>
-                                <p>Thank you — we've received your project details and will send you a tailored quote within 24 hours.</p>
+                                <strong>Enquiry submitted successfully!</strong>
+                                <p>Thank you <?= htmlspecialchars($enq_form['name'] ?: '') ?> — we've received your project details and will send you a tailored quote within 24 hours.</p>
                             </div>
                         </div>
                         <?php endif; ?>
@@ -165,10 +164,10 @@ include 'components/header.php';
                         </div>
                         <?php endif; ?>
 
+                        <?php if (!$enq_success): ?>
                         <form id="enqForm" class="enq-form" method="POST" action="enquiry.php#enq-anchor" novalidate>
                             <input type="hidden" name="enq_submit" value="1">
                             <input type="text" name="website_verify" class="ctct-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-                            <div id="enq-anchor" style="position:relative;top:-80px;"></div>
 
                             <!-- SECTION A: Contact Details -->
                             <div class="enq-section-label">
@@ -311,6 +310,7 @@ include 'components/header.php';
                             <p class="enq-privacy">We respect your privacy. Your information is never shared with third parties.</p>
 
                         </form>
+                        <?php endif; ?>
                     </div>
 
                     <!-- ── SIDE PANEL ── -->
@@ -502,6 +502,14 @@ include 'components/header.php';
                 var firstErr = form.querySelector('.enq-input--err');
                 if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
+            }
+
+            // GA4 — track enquiry submission as a lead conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    event_category: 'Enquiry Form',
+                    event_label: 'enquiry.php'
+                });
             }
 
             if (submitBtn) { submitBtn.classList.add('enq-submit--loading'); submitBtn.disabled = true; }

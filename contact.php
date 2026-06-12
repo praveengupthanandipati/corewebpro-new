@@ -31,9 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ctct_submit'])) {
         } elseif (strlen($ctct_form['message']) < 10) {
             $ctct_error = 'Your message is too short — please give us a little more detail.';
         } else {
-            $to      = 'info@corewebpro.com';
-            $subject = '=?UTF-8?B?' . base64_encode('New Enquiry from ' . $ctct_form['name'] . ' – Core Web Pro') . '?=';
-
             $body  = "You have a new contact enquiry from the Core Web Pro website.\n";
             $body .= str_repeat('-', 50) . "\n\n";
             $body .= "Name    : {$ctct_form['name']}\n";
@@ -43,16 +40,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['ctct_submit'])) {
             $body .= str_repeat('-', 50) . "\n";
             $body .= "Sent via corewebpro.com contact form\n";
 
-            $headers  = "MIME-Version: 1.0\r\n";
-            $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-            $headers .= "From: Core Web Pro Website <no-reply@corewebpro.com>\r\n";
-            $headers .= "Reply-To: {$ctct_form['name']} <{$ctct_form['email']}>\r\n";
-            $headers .= "X-Mailer: PHP/" . PHP_VERSION . "\r\n";
-
-            if (mail($to, $subject, $body, $headers)) {
+            try {
+                require_once __DIR__ . '/config/mailer.php';
+                $mail = cwp_mailer();
+                $mail->addReplyTo($ctct_form['email'], $ctct_form['name']);
+                $mail->Subject = 'New Contact Enquiry from ' . $ctct_form['name'] . ' – Core Web Pro';
+                $mail->Body    = $body;
+                $mail->send();
                 $ctct_success = true;
                 $ctct_form    = array_fill_keys(array_keys($ctct_form), '');
-            } else {
+            } catch (\Exception $e) {
                 $ctct_error = 'Sorry, we could not send your message right now. Please email us directly at <a href="mailto:info@corewebpro.com">info@corewebpro.com</a> or WhatsApp us.';
             }
         }
@@ -139,14 +136,16 @@ include 'components/header.php';
                             <p>Fill in the form below and we'll get back to you within 24 hours with a tailored quote.</p>
                         </div>
 
+                        <div id="ctct-form-anchor" style="position:relative;top:-80px;"></div>
+
                         <?php if ($ctct_success): ?>
                         <div class="ctct-success-msg" role="alert">
                             <div class="ctct-success-msg__icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             </div>
                             <div>
-                                <strong>Message sent!</strong>
-                                <p>Thank you — we've received your enquiry and will reply within 24 hours. Check your spam folder if you don't hear from us.</p>
+                                <strong>Message sent successfully!</strong>
+                                <p>Thank you <?= htmlspecialchars($ctct_form['name'] ?: '') ?> — we've received your message and will get back to you within 24 hours. Check your spam folder if you don't hear from us.</p>
                             </div>
                         </div>
                         <?php endif; ?>
@@ -158,12 +157,11 @@ include 'components/header.php';
                         </div>
                         <?php endif; ?>
 
+                        <?php if (!$ctct_success): ?>
                         <form id="ctctForm" class="ctct-form" method="POST" action="contact.php#ctct-form-anchor" novalidate>
                             <input type="hidden" name="ctct_submit" value="1">
                             <!-- Honeypot — hidden from real users -->
                             <input type="text" name="website_url" class="ctct-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-                            <div id="ctct-form-anchor" style="position:relative;top:-80px;"></div>
 
                             <div class="ctct-form__row ctct-form__row--3">
                                 <div class="ctct-form__group">
@@ -233,6 +231,7 @@ include 'components/header.php';
 
                             <p class="ctct-form__note">We respect your privacy. Your information is never shared with third parties.</p>
                         </form>
+                        <?php endif; ?>
                     </div>
 
                     <!-- ── RIGHT: DETAILS & QUICK CONNECT ── -->
@@ -385,6 +384,14 @@ include 'components/header.php';
                 var firstErr = form.querySelector('.ctct-form__input--err');
                 if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
+            }
+
+            // GA4 — track form submission as a lead conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                    event_category: 'Contact Form',
+                    event_label: 'contact.php'
+                });
             }
 
             // Show loading state

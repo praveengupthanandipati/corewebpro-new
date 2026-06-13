@@ -122,7 +122,7 @@ $contact_faqs = [
     ],
     [
         'q' => 'How do I get a project quote?',
-        'a' => '<p>Fill in the enquiry form above, or WhatsApp us directly. Share your requirements and we\'ll send you a detailed quote within 24 hours. You can also check our <a href="pricing.php">Pricing page</a> for indicative package rates.</p>',
+        'a' => '<p>Fill in the enquiry form above, or WhatsApp us directly. Share your requirements and we\'ll send you a detailed quote within 24 hours. You can also check our <a href="/pricing">Pricing page</a> for indicative package rates.</p>',
     ],
     [
         'q' => 'Do you offer post-launch support?',

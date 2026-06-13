@@ -14,7 +14,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Sitemap</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Sitemap</span>
                 </nav>
@@ -83,8 +83,8 @@ include 'components/header.php';
                         <p>Explore our services or get in touch — we'll help you find the right solution for your business.</p>
                     </div>
                     <div class="inner-cta-strip__actions">
-                        <a href="contact.php" class="btn-cta-primary">Contact Us</a>
-                        <a href="pricing.php" class="btn-cta-outline">View Pricing</a>
+                        <a href="/contact" class="btn-cta-primary">Contact Us</a>
+                        <a href="/pricing" class="btn-cta-outline">View Pricing</a>
                     </div>
                 </div>
             </div>

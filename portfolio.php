@@ -21,7 +21,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Our Portfolio</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Portfolio</span>
                 </nav>
@@ -106,7 +106,7 @@ include 'components/header.php';
                         <p>Let's create something you'll be proud to show the world. Tell us about your project and we'll get back to you within 24 hours.</p>
                     </div>
                     <div class="inner-cta-strip__actions">
-                        <a href="contact.php" class="btn-cta-primary">Start a Project</a>
+                        <a href="/enquiry" class="btn-cta-primary">Start a Project</a>
                         <a href="https://wa.me/917799971112?text=Hello%2C%20I%27d%20like%20to%20discuss%20a%20project!" class="btn-cta-outline" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                     </div>
                 </div>

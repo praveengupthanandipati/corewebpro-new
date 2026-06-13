@@ -52,7 +52,7 @@
                 <div class="footer-bottom__inner">
                     <p>&copy; <span id="footerYear"></span> Core Web Pro. All Rights Reserved. Crafted with &hearts; in Hyderabad.</p>
                     <div class="footer-bottom__links">
-                        <a href="sitemap.php">Sitemap</a>
+                        <a href="/sitemap">Sitemap</a>
                     </div>
                 </div>
             </div>

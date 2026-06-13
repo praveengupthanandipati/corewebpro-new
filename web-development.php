@@ -21,7 +21,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Web Development</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Services</span>
                     <span class="page-hero__sep">/</span>
@@ -46,8 +46,8 @@ include 'components/header.php';
                         <p>Our development work spans the full stack — from pixel-precise frontend implementation to robust backend logic, API design, database architecture and server configuration. We build websites and web applications that are fast to load, secure by default and easy to maintain long-term.</p>
                         <p>Whether you need a static marketing site converted from a Figma design, a CMS-powered website, a REST API or a full custom web application — we have the depth to deliver it properly.</p>
                         <div class="svc-intro__actions">
-                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your Project</a>
-                            <a href="contact.php" class="svc-intro__link">
+                            <a href="/enquiry" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your Project</a>
+                            <a href="/contact" class="svc-intro__link">
                                 Contact us
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>
@@ -268,7 +268,7 @@ include 'components/header.php';
                         <p>Tell us what you need — we'll scope it, price it and build it properly. Free consultation with no obligation.</p>
                     </div>
                     <div class="inner-cta-strip__actions">
-                        <a href="contact.php" class="btn-cta-primary">Get a Free Quote</a>
+                        <a href="/enquiry" class="btn-cta-primary">Get a Free Quote</a>
                         <a href="https://wa.me/917799971112?text=Hello%2C%20I%27m%20interested%20in%20web%20development%20services!" class="btn-cta-outline" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                     </div>
                 </div>

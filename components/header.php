@@ -12,6 +12,13 @@ function _nav_active(array $pages, string $cur, string $cls = 'active'): string 
     return in_array($cur, $pages, true) ? ' ' . $cls : '';
 }
 
+function cwp_url(string $page = ''): string {
+    if ($page === '' || $page === 'index.php' || $page === '/') {
+        return 'https://www.corewebpro.in';
+    }
+    return '/' . str_replace('.php', '', ltrim($page, '/'));
+}
+
 $_company_pages  = ['about.php', 'team.php', 'portfolio.php'];
 $_services_pages = ['web-designing.php', 'web-development.php', 'seo-digital-marketing.php', 'mobile-development.php'];
 
@@ -93,41 +100,41 @@ ob_start('cwp_minify_html');
             <div class="container-90 d-flex align-items-center w-100">
 
                 <!-- Logo -->
-                <a class="navbar-brand flex-shrink-0" id="navLogoBrand" href="index.php"></a>
+                <a class="navbar-brand flex-shrink-0" id="navLogoBrand" href="https://www.corewebpro.in"></a>
 
                 <!-- Desktop Navigation -->
                 <div class="collapse navbar-collapse ms-4" id="mainNavCollapse">
                     <ul class="navbar-nav mx-auto gap-1 align-items-center">
 
                         <li class="nav-item">
-                            <a class="nav-link<?= _nav_active(['index.php'], $_cur) ?>" href="index.php">Home</a>
+                            <a class="nav-link<?= _nav_active(['index.php'], $_cur) ?>" href="https://www.corewebpro.in">Home</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle<?= _nav_active($_company_pages, $_cur) ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item<?= _nav_active(['about.php'], $_cur) ?>" href="about.php">About Us</a></li>
-                                <li><a class="dropdown-item<?= _nav_active(['team.php'], $_cur) ?>" href="team.php">Our Team</a></li>
-                                <li><a class="dropdown-item<?= _nav_active(['portfolio.php'], $_cur) ?>" href="portfolio.php">Portfolio</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['about.php'], $_cur) ?>" href="/about">About Us</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['team.php'], $_cur) ?>" href="/team">Our Team</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['portfolio.php'], $_cur) ?>" href="/portfolio">Portfolio</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle<?= _nav_active($_services_pages, $_cur) ?>" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item<?= _nav_active(['web-designing.php'], $_cur) ?>" href="web-designing.php">Web Designing</a></li>
-                                <li><a class="dropdown-item<?= _nav_active(['web-development.php'], $_cur) ?>" href="web-development.php">Web Development</a></li>
-                                <li><a class="dropdown-item<?= _nav_active(['seo-digital-marketing.php'], $_cur) ?>" href="seo-digital-marketing.php">SEO &amp; Digital Marketing</a></li>
-                                <li><a class="dropdown-item<?= _nav_active(['mobile-development.php'], $_cur) ?>" href="mobile-development.php">Mobile Development</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['web-designing.php'], $_cur) ?>" href="/web-designing">Web Designing</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['web-development.php'], $_cur) ?>" href="/web-development">Web Development</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['seo-digital-marketing.php'], $_cur) ?>" href="/seo-digital-marketing">SEO &amp; Digital Marketing</a></li>
+                                <li><a class="dropdown-item<?= _nav_active(['mobile-development.php'], $_cur) ?>" href="/mobile-development">Mobile Development</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link<?= _nav_active(['pricing.php'], $_cur) ?>" href="pricing.php">Pricing</a>
+                            <a class="nav-link<?= _nav_active(['pricing.php'], $_cur) ?>" href="/pricing">Pricing</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link<?= _nav_active(['contact.php'], $_cur) ?>" href="contact.php">Contact</a>
+                            <a class="nav-link<?= _nav_active(['contact.php'], $_cur) ?>" href="/contact">Contact</a>
                         </li>
 
                     </ul>
@@ -135,7 +142,7 @@ ob_start('cwp_minify_html');
 
                 <!-- Right Actions -->
                 <div class="nav-actions ms-auto d-flex align-items-center gap-2 flex-shrink-0">
-                    <a href="enquiry.php" class="btn btn-get-in-touch d-none d-lg-inline-flex">Get a Quote</a>
+                    <a href="/enquiry" class="btn btn-get-in-touch d-none d-lg-inline-flex">Get a Quote</a>
                     <button class="nav-hamburger d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-label="Menu">
                         <span></span><span></span><span></span>
                     </button>
@@ -155,7 +162,7 @@ ob_start('cwp_minify_html');
 
             <!-- Header -->
             <div class="mob-nav-header">
-                <a href="index.php" class="mob-nav-brand">
+                <a href="https://www.corewebpro.in" class="mob-nav-brand">
                     <img src="img/logo.svg" alt="Core Web Pro" class="mob-nav-logo-img">
                 </a>
                 <button type="button" class="mob-nav-close" data-bs-dismiss="offcanvas" aria-label="Close menu">
@@ -169,7 +176,7 @@ ob_start('cwp_minify_html');
                     <ul class="mob-nav__list">
 
                         <li class="mob-nav__item">
-                            <a href="index.php" class="mob-nav__link<?= _nav_active(['index.php'], $_cur) ?>">Home</a>
+                            <a href="https://www.corewebpro.in" class="mob-nav__link<?= _nav_active(['index.php'], $_cur) ?>">Home</a>
                         </li>
 
                         <!-- Company accordion -->
@@ -179,9 +186,9 @@ ob_start('cwp_minify_html');
                                 <svg class="mob-nav__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                             </button>
                             <ul class="mob-nav__sub">
-                                <li><a href="about.php"     class="mob-nav__sub-link<?= _nav_active(['about.php'],     $_cur) ?>">About Us</a></li>
-                                <li><a href="team.php"      class="mob-nav__sub-link<?= _nav_active(['team.php'],      $_cur) ?>">Our Team</a></li>
-                                <li><a href="portfolio.php" class="mob-nav__sub-link<?= _nav_active(['portfolio.php'], $_cur) ?>">Portfolio</a></li>
+                                <li><a href="/about"     class="mob-nav__sub-link<?= _nav_active(['about.php'],     $_cur) ?>">About Us</a></li>
+                                <li><a href="/team"      class="mob-nav__sub-link<?= _nav_active(['team.php'],      $_cur) ?>">Our Team</a></li>
+                                <li><a href="/portfolio" class="mob-nav__sub-link<?= _nav_active(['portfolio.php'], $_cur) ?>">Portfolio</a></li>
                             </ul>
                         </li>
 
@@ -192,19 +199,19 @@ ob_start('cwp_minify_html');
                                 <svg class="mob-nav__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                             </button>
                             <ul class="mob-nav__sub">
-                                <li><a href="web-designing.php"       class="mob-nav__sub-link<?= _nav_active(['web-designing.php'],       $_cur) ?>">Web Designing</a></li>
-                                <li><a href="web-development.php"     class="mob-nav__sub-link<?= _nav_active(['web-development.php'],     $_cur) ?>">Web Development</a></li>
-                                <li><a href="seo-digital-marketing.php" class="mob-nav__sub-link<?= _nav_active(['seo-digital-marketing.php'], $_cur) ?>">SEO &amp; Digital Marketing</a></li>
-                                <li><a href="mobile-development.php"  class="mob-nav__sub-link<?= _nav_active(['mobile-development.php'],  $_cur) ?>">Mobile Development</a></li>
+                                <li><a href="/web-designing"       class="mob-nav__sub-link<?= _nav_active(['web-designing.php'],       $_cur) ?>">Web Designing</a></li>
+                                <li><a href="/web-development"     class="mob-nav__sub-link<?= _nav_active(['web-development.php'],     $_cur) ?>">Web Development</a></li>
+                                <li><a href="/seo-digital-marketing" class="mob-nav__sub-link<?= _nav_active(['seo-digital-marketing.php'], $_cur) ?>">SEO &amp; Digital Marketing</a></li>
+                                <li><a href="/mobile-development"  class="mob-nav__sub-link<?= _nav_active(['mobile-development.php'],  $_cur) ?>">Mobile Development</a></li>
                             </ul>
                         </li>
 
                         <li class="mob-nav__item">
-                            <a href="pricing.php" class="mob-nav__link<?= _nav_active(['pricing.php'], $_cur) ?>">Pricing</a>
+                            <a href="/pricing" class="mob-nav__link<?= _nav_active(['pricing.php'], $_cur) ?>">Pricing</a>
                         </li>
 
                         <li class="mob-nav__item">
-                            <a href="contact.php" class="mob-nav__link<?= _nav_active(['contact.php'], $_cur) ?>">Contact</a>
+                            <a href="/contact" class="mob-nav__link<?= _nav_active(['contact.php'], $_cur) ?>">Contact</a>
                         </li>
 
                     </ul>
@@ -212,7 +219,7 @@ ob_start('cwp_minify_html');
 
                 <!-- Footer: CTA + contact -->
                 <div class="mob-nav-foot">
-                    <a href="enquiry.php" class="mob-nav-cta">
+                    <a href="/enquiry.php" class="mob-nav-cta">
                         Get a Quote
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>

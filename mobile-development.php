@@ -20,7 +20,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Mobile App Development</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Services</span>
                     <span class="page-hero__sep">/</span>
@@ -44,7 +44,7 @@ include 'components/header.php';
                         <p>We build cross-platform and native mobile applications using React Native and Flutter for single-codebase apps on both Android and iOS, and Progressive Web Apps (PWAs) for lightweight browser-based mobile experiences. Every app we deliver is responsive, performant and built with real users in mind.</p>
                         <p>From concept and UI design through to app store submission and post-launch support — we handle the complete mobile development lifecycle so you don't have to manage multiple vendors.</p>
                         <div class="svc-intro__actions">
-                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your App Idea</a>
+                            <a href="/enquiry" class="btn btn-primary rounded-pill px-4 py-2">Discuss Your App Idea</a>
                         </div>
                     </div>
 
@@ -230,7 +230,7 @@ include 'components/header.php';
                         <p>Tell us what your app does, who it's for and what you need. We'll scope it, quote it and build it properly.</p>
                     </div>
                     <div class="inner-cta-strip__actions">
-                        <a href="contact.php" class="btn-cta-primary">Discuss Your App</a>
+                        <a href="/enquiry" class="btn-cta-primary">Discuss Your App</a>
                         <a href="https://wa.me/917799971112?text=Hello%2C%20I%27m%20interested%20in%20mobile%20app%20development!" class="btn-cta-outline" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                     </div>
                 </div>

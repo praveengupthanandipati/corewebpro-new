@@ -192,7 +192,7 @@ $dev_techstack = [
 $dev_faqs = [
     [
         'q' => 'Do you do design as well, or only development?',
-        'a' => '<p>This page covers our development service. We also offer a dedicated <a href="web-designing.php">Web Designing service</a> — UI/UX design, wireframing and Figma prototypes. Many clients hire us for both together and we offer bundled pricing for design + development projects.</p>',
+        'a' => '<p>This page covers our development service. We also offer a dedicated <a href="/web-designing">Web Designing service</a> — UI/UX design, wireframing and Figma prototypes. Many clients hire us for both together and we offer bundled pricing for design + development projects.</p>',
     ],
     [
         'q' => 'What do I need to provide before development starts?',

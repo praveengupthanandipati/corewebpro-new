@@ -21,7 +21,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">SEO &amp; Digital Marketing</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Services</span>
                     <span class="page-hero__sep">/</span>
@@ -46,7 +46,7 @@ include 'components/header.php';
                         <p>We offer end-to-end digital marketing services — from improving your search engine rankings organically through SEO, to running targeted paid campaigns on Google and social platforms that deliver measurable ROI.</p>
                         <p>Everything we do is data-driven and transparent. No vague promises, no black-hat shortcuts — just honest strategy, consistent execution and monthly reports that show exactly what's working.</p>
                         <div class="svc-intro__actions">
-                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Get a Free SEO Audit</a>
+                            <a href="/enquiry" class="btn btn-primary rounded-pill px-4 py-2">Get a Free SEO Audit</a>
                         </div>
                     </div>
 
@@ -266,7 +266,7 @@ include 'components/header.php';
                         <p>Get a free SEO audit of your website and a clear plan to improve your rankings and traffic. No obligation, no hard sell.</p>
                     </div>
                     <div class="inner-cta-strip__actions">
-                        <a href="contact.php" class="btn-cta-primary">Get Free SEO Audit</a>
+                        <a href="/enquiry" class="btn-cta-primary">Get Free SEO Audit</a>
                         <a href="https://wa.me/917799971112?text=Hello%2C%20I%27m%20interested%20in%20SEO%20and%20digital%20marketing%20services!" class="btn-cta-outline" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                     </div>
                 </div>

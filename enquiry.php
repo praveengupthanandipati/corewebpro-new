@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enq_submit'])) {
             $body .= "Existing URL : " . ($enq_form['existing_url'] ?: 'None / New project') . "\n";
             $body .= "Technologies : {$tech_list}\n";
             $body .= "Budget       : " . ($enq_form['budget']   ?: 'Not specified') . "\n";
+            
             $body .= "Timeline     : " . ($enq_form['timeline'] ?: 'Not specified') . "\n\n";
             $body .= "PROJECT DESCRIPTION\n" . str_repeat('-', 30) . "\n";
             $body .= "{$enq_form['description']}\n\n";
@@ -121,7 +122,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Project Enquiry</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Enquiry</span>
                 </nav>
@@ -167,7 +168,7 @@ include 'components/header.php';
                         <?php endif; ?>
 
                         <?php if (!$enq_success): ?>
-                        <form id="enqForm" class="enq-form" method="POST" action="enquiry.php#enq-anchor" novalidate>
+                        <form id="enqForm" class="enq-form" method="POST" action="/enquiry#enq-anchor" novalidate>
                             <input type="hidden" name="enq_submit" value="1">
                             <input type="text" name="website_verify" class="ctct-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -411,7 +412,7 @@ include 'components/header.php';
 
                     <div class="faq-item">
                         <button class="faq-q" aria-expanded="false">How much does a website cost?</button>
-                        <div class="faq-a"><p>Pricing depends on the type, scale and features of your project. A basic informational website starts from ₹15,000, while a fully custom web application can be significantly more. Submit your enquiry above and we'll send you an itemised quote within 24 hours. You can also review our <a href="pricing.php">Pricing page</a> for indicative package rates.</p></div>
+                        <div class="faq-a"><p>Pricing depends on the type, scale and features of your project. A basic informational website starts from ₹15,000, while a fully custom web application can be significantly more. Submit your enquiry above and we'll send you an itemised quote within 24 hours. You can also review our <a href="/pricing">Pricing page</a> for indicative package rates.</p></div>
                     </div>
 
                     <div class="faq-item">

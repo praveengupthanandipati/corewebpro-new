@@ -152,7 +152,7 @@ $design_tools = [
 $design_faqs = [
     [
         'q' => 'Do you build the website too, or only design it?',
-        'a' => '<p>This page covers our design service only — creating the visual layouts and UX in Figma. If you also need the site built (HTML/CSS, WordPress, Laravel, React, etc.), that falls under our <a href="web-development.php">Web Development service</a>. Many clients commission both together, and we offer bundled pricing for design + development projects.</p>',
+        'a' => '<p>This page covers our design service only — creating the visual layouts and UX in Figma. If you also need the site built (HTML/CSS, WordPress, Laravel, React, etc.), that falls under our <a href="/web-development">Web Development service</a>. Many clients commission both together, and we offer bundled pricing for design + development projects.</p>',
     ],
     [
         'q' => 'What do I receive at the end of a design project?',

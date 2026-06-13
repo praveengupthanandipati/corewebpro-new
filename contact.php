@@ -83,7 +83,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Contact Us</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Contact</span>
                 </nav>
@@ -160,7 +160,7 @@ include 'components/header.php';
                         <?php endif; ?>
 
                         <?php if (!$ctct_success): ?>
-                        <form id="ctctForm" class="ctct-form" method="POST" action="contact.php#ctct-form-anchor" novalidate>
+                        <form id="ctctForm" class="ctct-form" method="POST" action="/contact#ctct-form-anchor" novalidate>
                             <input type="hidden" name="ctct_submit" value="1">
                             <!-- Honeypot — hidden from real users -->
                             <input type="text" name="website_url" class="ctct-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">

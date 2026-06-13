@@ -21,7 +21,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Web Designing</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Services</span>
                     <span class="page-hero__sep">/</span>
@@ -46,7 +46,7 @@ include 'components/header.php';
                         <p>Our web design work focuses entirely on the visual and UX layer — layout, typography, colour, spacing, imagery and interaction. We craft every screen with intent: knowing where the eye travels, what builds trust and what drives clicks.</p>
                         <p>Whether you need a fresh design for a new site, a redesign of an ageing one or just a set of high-fidelity Figma screens ready for a developer — we deliver clean, polished, pixel-perfect design that reflects your brand at its best.</p>
                         <div class="svc-intro__actions">
-                            <a href="enquiry.php" class="btn btn-primary rounded-pill px-4 py-2">Get a Free Design Quote</a>
+                            <a href="/enquiry" class="btn btn-primary rounded-pill px-4 py-2">Get a Free Design Quote</a>
                         </div>
                     </div>
 
@@ -220,7 +220,7 @@ include 'components/header.php';
                         <p>Tell us about your project and get a free design consultation and quote within 24 hours.</p>
                     </div>
                     <div class="inner-cta-strip__actions">
-                        <a href="contact.php" class="btn-cta-primary">Get a Free Quote</a>
+                        <a href="/enquiry" class="btn-cta-primary">Get a Free Quote</a>
                         <a href="https://wa.me/917799971112?text=Hello%2C%20I%27m%20interested%20in%20web%20designing%20services!" class="btn-cta-outline" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                     </div>
                 </div>

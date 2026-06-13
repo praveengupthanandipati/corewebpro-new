@@ -20,7 +20,7 @@ include 'components/header.php';
             <div class="page-hero__inner">
                 <h1 class="page-hero__title">Pricing</h1>
                 <nav class="page-hero__breadcrumb" aria-label="breadcrumb">
-                    <a href="index.php">Home</a>
+                    <a href="https://www.corewebpro.in">Home</a>
                     <span class="page-hero__sep">/</span>
                     <span>Pricing</span>
                 </nav>
@@ -82,7 +82,7 @@ include 'components/header.php';
                 <!-- Disclaimer -->
                 <p class="pricing-note" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
                     Prices are indicative — final quote is provided after a free scoping call.
-                    Need something between packages? <a href="contact.php">Let's talk</a> — we build custom proposals for every project.
+                    Need something between packages? <a href="/contact">Let's talk</a> — we build custom proposals for every project.
                 </p>
 
             </div>
@@ -214,7 +214,7 @@ include 'components/header.php';
                         <p>Tell us about your project in a quick message — we'll recommend the right option and send a free, no-obligation quote within 24 hours.</p>
                     </div>
                     <div class="inner-cta-strip__actions">
-                        <a href="contact.php" class="btn-cta-primary">Get a Free Quote</a>
+                        <a href="/enquiry" class="btn-cta-primary">Get a Free Quote</a>
                         <a href="https://wa.me/917799971112?text=Hello%2C%20I%27d%20like%20to%20discuss%20a%20pricing%20package!" class="btn-cta-outline" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                     </div>
                 </div>

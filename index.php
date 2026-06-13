@@ -156,7 +156,7 @@ require_once 'components/hero-data.php';
                         <p class="about-desc" data-aos="fade-right" data-aos-delay="200" data-aos-duration="700">
                             Core Webpro is a team of highly passionate web designers and developers. We do ordinary things extraordinarily well. Our team is driven by the desire to excel — but our determination and commitment to an unrelenting pursuit of your goal enables us to attain the success that we seek.
                         </p>
-                        <a href="about.php" class="btn-about-cta" data-aos="fade-up" data-aos-delay="320" data-aos-duration="600">
+                        <a href="/about" class="btn-about-cta" data-aos="fade-up" data-aos-delay="320" data-aos-duration="600">
                             Know More
                             <span data-icon="arrowRight"></span>
                         </a>
